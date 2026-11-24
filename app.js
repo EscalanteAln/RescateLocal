@@ -1,133 +1,132 @@
 /**
  * ========================================================
- * RESCATELOCAL - LÓGICA DE NEGOCIO, TEMPORIZADORES Y RESERVAS
+ * RESCATELOCAL PERÚ - LÓGICA DE NEGOCIO, MONEDA EN SOLES S/
  * ========================================================
  */
 
-// 1. Catálogo inicial de comercios y ofertas hiperlocales
+// 1. Catálogo de Ofertas en Soles Peruanos (S/) con Comercios Locales
 const DEFAULT_OFFERS = [
   {
-    id: 'off-1',
-    title: 'Bolsa Sorpresa de Masa Madre y Croissants',
-    store: 'Panadería y Tahona La Espiga',
-    category: 'panaderia',
-    distance: 'A 180 m',
-    address: 'Carrer de Verdi 32, Gràcia',
-    originalPrice: 14.50,
-    rescuePrice: 3.99,
+    id: 'off-peru-1',
+    title: 'Caja Menú Criollo: Lomo Saltado con Arroz y Papas Nativas',
+    store: 'Huarique Criollo Don Lucho',
+    category: 'criollo',
+    distance: 'A 250 m • Surquillo',
+    address: 'Calle Lizardo Montero 240, Surquillo',
+    originalPrice: 24.00,
+    rescuePrice: 7.50,
     isFree: false,
     stock: 3,
     initialStock: 3,
-    secondsLeft: 3840, // 1h 4m
-    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80',
-    impactKg: 2.2,
-    badgeText: 'Horno Artesano'
+    secondsLeft: 3720, // 1h 2m
+    image: 'hero-lomo-saltado.png',
+    impactKg: 1.8,
+    badgeText: 'Plato Bandera'
   },
   {
-    id: 'off-2',
-    title: 'Cajón Mixto de Fruta y Verdura Madura del Día',
-    store: 'Frutería y Huerto BioVerde',
-    category: 'verduleria',
-    distance: 'A 340 m',
-    address: 'Torrent de l\'Olla 78, Gràcia',
-    originalPrice: 16.00,
-    rescuePrice: 4.50,
+    id: 'off-peru-2',
+    title: 'Bolsa Sorpresa: Pan Francés, Ciabattas y Empanadas de Carne',
+    store: 'Panadería & Pastelería San Antonio',
+    category: 'panaderia',
+    distance: 'A 380 m • Miraflores',
+    address: 'Av. Angamos Oeste 1494, Miraflores',
+    originalPrice: 18.00,
+    rescuePrice: 5.00,
     isFree: false,
     stock: 4,
     initialStock: 4,
-    secondsLeft: 7920, // 2h 12m
-    image: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=700&q=80',
-    impactKg: 4.5,
-    badgeText: '100% Ecológico'
+    secondsLeft: 7800, // 2h 10m
+    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80',
+    impactKg: 2.2,
+    badgeText: 'Horno Tradicional'
   },
   {
-    id: 'off-3',
-    title: 'Pack Cenas Caseras: Guisos y Tortilla Paisana',
-    store: 'Rosticería & Fogones de la Abuela',
-    category: 'comida',
-    distance: 'A 490 m',
-    address: 'Travessera de Gràcia 142',
-    originalPrice: 18.50,
-    rescuePrice: 5.20,
+    id: 'off-peru-3',
+    title: 'Pack Cena: 1/4 Pollo a la Brasa con Papas y Cremas Peruanas',
+    store: 'Pollería & Brasas El Carbón Criollo',
+    category: 'polleria',
+    distance: 'A 450 m • Barranco',
+    address: 'Av. Pedro de Osma 218, Barranco',
+    originalPrice: 22.00,
+    rescuePrice: 6.50,
     isFree: false,
     stock: 2,
     initialStock: 2,
-    secondsLeft: 2160, // 36 mins (¡Urgente!)
-    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&q=80',
-    impactKg: 3.0,
-    badgeText: 'Cocina del Día'
+    secondsLeft: 1860, // 31 mins (¡Urgente!)
+    image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=700&q=80',
+    impactKg: 2.5,
+    badgeText: 'A la Leña'
   },
   {
-    id: 'off-4',
-    title: 'Lote Solidario: Sandwiches y Ensaladas Frescas',
-    store: 'Café & Obrador Comunitario El Rincón',
+    id: 'off-peru-4',
+    title: 'Raciones Solidarias: Seco de Res con Frejoles y Arroz',
+    store: 'Olla Común San Cayetano / Comedor Comunitario',
     category: 'gratis',
-    distance: 'A 280 m',
-    address: 'Carrer de Girona 54',
-    originalPrice: 12.00,
+    distance: 'A 500 m • Lima Centro',
+    address: 'Jr. Junín 642, Barrios Altos',
+    originalPrice: 14.00,
     rescuePrice: 0.00,
     isFree: true,
     stock: 5,
     initialStock: 5,
     secondsLeft: 4620, // 1h 17m
-    image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=80',
-    impactKg: 2.8,
-    badgeText: 'Solidario Gratis'
+    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&q=80',
+    impactKg: 3.0,
+    badgeText: '100% Solidario S/ 0.00'
   },
   {
-    id: 'off-5',
-    title: 'Caja Degustación: Focaccias y Porciones de Pizza',
-    store: 'Pizzería Artesanal Napolitana Bella Ciao',
-    category: 'comida',
-    distance: 'A 650 m',
-    address: 'Plaça del Sol 12',
-    originalPrice: 15.00,
-    rescuePrice: 4.80,
-    isFree: false,
-    stock: 1, // ¡Último disponible!
-    initialStock: 2,
-    secondsLeft: 1620, // 27 mins (< 30 min urgencia)
-    image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80',
-    impactKg: 2.0,
-    badgeText: 'Masa Fermentada'
-  },
-  {
-    id: 'off-6',
-    title: 'Surtido de Quesos Artesanales y Yogures Naturales',
-    store: 'Quesería de Barrio La Colina',
-    category: 'lacteos',
-    distance: 'A 420 m',
-    address: 'Carrer de Bailèn 90',
-    originalPrice: 19.00,
+    id: 'off-peru-5',
+    title: 'Cajón Mercado Fresco: Paltas Hass, Choclo, Tomate y Mangos Kent',
+    store: 'Mercado N°1 de Surquillo - Puesto Doña Rosa',
+    category: 'frutas',
+    distance: 'A 200 m • Surquillo',
+    address: 'Puesto 45, Mercado N°1, Surquillo',
+    originalPrice: 20.00,
     rescuePrice: 5.50,
     isFree: false,
     stock: 3,
     initialStock: 3,
     secondsLeft: 5400, // 1h 30m
-    image: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=700&q=80',
-    impactKg: 2.5,
-    badgeText: 'Lácteos Frescos'
+    image: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=700&q=80',
+    impactKg: 4.2,
+    badgeText: 'Huerto Fresco'
+  },
+  {
+    id: 'off-peru-6',
+    title: 'Pack Natural: 2 Litros de Chicha Morada Casera y Fruta Picada',
+    store: 'Juguería & Fuente de Soda La Selva',
+    category: 'jugos',
+    distance: 'A 600 m • San Isidro',
+    address: 'Calle Las Begonias 312, San Isidro',
+    originalPrice: 16.00,
+    rescuePrice: 4.50,
+    isFree: false,
+    stock: 2,
+    initialStock: 2,
+    secondsLeft: 1680, // 28 mins (< 30 min urgencia)
+    image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=700&q=80',
+    impactKg: 2.0,
+    badgeText: 'Maíz Morado'
   }
 ];
 
-// 2. Estado Global de la Aplicación
+// 2. Estado Global de la Plataforma
 let state = {
   offers: [],
   reservations: [],
   activeCategory: 'all',
   searchQuery: '',
-  selectedLocation: 'Barrio de Gràcia, Barcelona',
+  selectedDistrict: 'Surquillo / Miraflores, Lima',
   currentBookingOfferId: null,
   bookingQuantity: 1,
   activeQRReservationId: null,
-  totalSavedKg: 38.4
+  totalSavedKg: 42.6
 };
 
-// Inicialización de la aplicación
 function initApp() {
-  const savedOffers = localStorage.getItem('rl_offers_v2');
-  const savedRes = localStorage.getItem('rl_reservations_v2');
-  const savedKg = localStorage.getItem('rl_impact_kg');
+  const savedOffers = localStorage.getItem('rl_peru_offers');
+  const savedRes = localStorage.getItem('rl_peru_reservations');
+  const savedKg = localStorage.getItem('rl_peru_kg');
 
   state.offers = savedOffers ? JSON.parse(savedOffers) : JSON.parse(JSON.stringify(DEFAULT_OFFERS));
   state.reservations = savedRes ? JSON.parse(savedRes) : [];
@@ -139,9 +138,9 @@ function initApp() {
 }
 
 function saveState() {
-  localStorage.setItem('rl_offers_v2', JSON.stringify(state.offers));
-  localStorage.setItem('rl_reservations_v2', JSON.stringify(state.reservations));
-  localStorage.setItem('rl_impact_kg', state.totalSavedKg.toString());
+  localStorage.setItem('rl_peru_offers', JSON.stringify(state.offers));
+  localStorage.setItem('rl_peru_reservations', JSON.stringify(state.reservations));
+  localStorage.setItem('rl_peru_kg', state.totalSavedKg.toString());
 }
 
 // 3. Temporizadores en Vivo (JavaScript Puro Sin Deriva)
@@ -153,14 +152,13 @@ function startLiveTimers() {
       if (offer.secondsLeft > 0) {
         offer.secondsLeft -= 1;
         
-        // Actualización directa del DOM sin parpadeos
         const timerEl = document.getElementById(`timer-${offer.id}`);
         if (timerEl) {
           timerEl.textContent = formatCountdown(offer.secondsLeft);
           
           const badgeEl = document.getElementById(`timer-badge-${offer.id}`);
           if (badgeEl && offer.secondsLeft < 1800) {
-            badgeEl.className = "flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-black bg-amber-500 text-slate-950 shadow-sm animate-urgent";
+            badgeEl.className = "flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-black bg-amber-500 text-slate-950 shadow-md animate-urgent";
           }
         }
       } else if (offer.secondsLeft === 0) {
@@ -174,7 +172,6 @@ function startLiveTimers() {
     }
   }, 1000);
 
-  // Resincronización al regresar a la pestaña
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') {
       renderOffers();
@@ -191,7 +188,7 @@ function formatCountdown(totalSecs) {
   return `⏳ ${pad(h)}h ${pad(m)}m ${pad(s)}s`;
 }
 
-// 4. Renderizado de Tarjetas de Ofertas
+// 4. Renderizado de Tarjetas de Ofertas (Sobre Fondo Oscuro Jade - CERO Blanco)
 function renderOffers() {
   const container = document.getElementById('offers-grid');
   const emptyState = document.getElementById('empty-offers-state');
@@ -212,7 +209,7 @@ function renderOffers() {
     return matchesCategory && matchesSearch;
   });
 
-  if (totalCountEl) totalCountEl.textContent = `${filtered.length} ofertas disponibles`;
+  if (totalCountEl) totalCountEl.textContent = `${filtered.length} ofertas disponibles hoy en Lima`;
 
   if (filtered.length === 0) {
     container.innerHTML = '';
@@ -228,31 +225,31 @@ function renderOffers() {
     const isUrgent = offer.secondsLeft > 0 && offer.secondsLeft < 1800;
     const discountPct = offer.isFree ? 100 : Math.round((1 - offer.rescuePrice / offer.originalPrice) * 100);
 
-    const cardOpacity = (isExpired || isSoldOut) ? 'opacity-60 grayscale-[30%]' : '';
+    const cardOpacity = (isExpired || isSoldOut) ? 'opacity-50 grayscale-[40%]' : '';
     const timerBadgeClass = isExpired 
-      ? 'bg-slate-200 text-slate-700' 
-      : (isUrgent ? 'bg-amber-500 text-slate-950 font-black animate-urgent' : 'bg-slate-900/85 text-emerald-300');
+      ? 'bg-slate-800 text-slate-400 border border-slate-700' 
+      : (isUrgent ? 'bg-amber-500 text-slate-950 font-black animate-urgent shadow-lg' : 'bg-emerald-950/90 text-emerald-300 border border-emerald-500/40');
 
     return `
-      <article class="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm card-hover-lift flex flex-col relative group ${cardOpacity}">
+      <article class="jade-card overflow-hidden flex flex-col relative group ${cardOpacity}">
         
         <!-- Imagen y Badges Flotantes -->
-        <div class="relative h-48 w-full bg-slate-100 overflow-hidden">
+        <div class="relative h-48 w-full bg-slate-900 overflow-hidden">
           <img src="${offer.image}" alt="${offer.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#062016] via-[#062016]/40 to-transparent"></div>
 
           <!-- Badges Superiores -->
           <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
-            <span class="bg-white/95 backdrop-blur-md text-slate-800 text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1 border border-slate-200/80">
-              <svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+            <span class="bg-[#062016]/90 backdrop-blur-md text-emerald-200 text-[10px] font-bold px-2.5 py-1 rounded-full shadow-md flex items-center gap-1 border border-emerald-500/40">
+              <svg class="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
               ${offer.distance}
             </span>
 
             ${offer.isFree 
-              ? `<span class="bg-emerald-600 text-white text-[10px] font-black px-2.5 py-1 rounded-full shadow-sm uppercase tracking-wider">
-                  🎁 100% Solidario
+              ? `<span class="bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-[10px] font-black px-2.5 py-1 rounded-full shadow-md uppercase tracking-wider border border-emerald-300/40">
+                  🎁 S/ 0.00 Solidario
                 </span>`
-              : `<span class="bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 text-[11px] font-black px-2.5 py-0.5 rounded-full shadow-sm">
+              : `<span class="bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 text-[11px] font-black px-2.5 py-0.5 rounded-full shadow-md">
                   -${discountPct}%
                 </span>`
             }
@@ -268,52 +265,52 @@ function renderOffers() {
           <!-- Stock -->
           <div class="absolute bottom-3 right-3">
             ${isSoldOut 
-              ? `<span class="bg-rose-700 text-white text-[10px] font-black px-2.5 py-1 rounded-full shadow-sm uppercase">Agotado</span>`
-              : `<span class="bg-white/95 backdrop-blur-md text-slate-800 text-[10px] font-black px-2.5 py-1 rounded-full shadow-sm border border-slate-200 flex items-center gap-1">
-                  <span class="w-1.5 h-1.5 rounded-full ${offer.stock === 1 ? 'bg-rose-500' : 'bg-emerald-500'}"></span>
+              ? `<span class="bg-rose-900/90 border border-rose-500 text-rose-200 text-[10px] font-black px-2.5 py-1 rounded-full shadow-sm uppercase">Agotado</span>`
+              : `<span class="bg-[#062016]/90 backdrop-blur-md text-emerald-200 text-[10px] font-black px-2.5 py-1 rounded-full shadow-sm border border-emerald-500/30 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full ${offer.stock === 1 ? 'bg-rose-400' : 'bg-emerald-400'}"></span>
                   ${offer.stock === 1 ? '¡Último!' : `Quedan ${offer.stock}`}
                 </span>`
             }
           </div>
         </div>
 
-        <!-- Cuerpo de la Tarjeta -->
+        <!-- Cuerpo de la Tarjeta en Jade Oscuro -->
         <div class="p-4 flex-1 flex flex-col justify-between">
           <div>
-            <div class="flex items-center space-x-2 text-[11px] text-slate-500 mb-1">
-              <span class="font-bold text-slate-700 truncate max-w-[180px]">${offer.store}</span>
+            <div class="flex items-center space-x-2 text-[11px] text-emerald-300/80 mb-1">
+              <span class="font-bold text-emerald-200 truncate max-w-[200px]">${offer.store}</span>
               <span>•</span>
-              <span class="text-slate-400 capitalize">${offer.category}</span>
+              <span class="text-emerald-400/90 capitalize">${offer.category}</span>
             </div>
 
-            <h3 class="font-extrabold text-sm text-slate-900 leading-snug group-hover:text-emerald-700 transition">
+            <h3 class="font-extrabold text-sm text-white leading-snug group-hover:text-emerald-300 transition">
               ${offer.title}
             </h3>
           </div>
 
-          <!-- Precios y Botón CTA -->
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+          <!-- Precios en Soles (S/) y Botón CTA -->
+          <div class="mt-4 pt-3 border-t border-emerald-500/20 flex items-center justify-between">
             <div>
               ${offer.isFree 
                 ? `<div class="flex flex-col">
-                    <span class="text-[10px] font-extrabold text-emerald-700 uppercase">Sin costo</span>
-                    <span class="text-base font-black text-emerald-800 leading-none">GRATIS</span>
+                    <span class="text-[10px] font-extrabold text-emerald-400 uppercase tracking-wider">Donación</span>
+                    <span class="text-base font-black text-emerald-300 leading-none">S/ 0.00 GRATIS</span>
                   </div>`
-                : `<div class="flex items-baseline space-x-1.5">
-                    <span class="text-lg font-black text-emerald-700">${offer.rescuePrice.toFixed(2)} €</span>
-                    <span class="text-xs text-slate-400 line-through font-medium">${offer.originalPrice.toFixed(2)} €</span>
+                : `<div class="flex items-baseline space-x-2">
+                    <span class="text-lg font-black text-emerald-300">S/ ${offer.rescuePrice.toFixed(2)}</span>
+                    <span class="text-xs text-emerald-100/50 line-through font-medium">S/ ${offer.originalPrice.toFixed(2)}</span>
                   </div>`
               }
-              <span class="text-[10px] text-slate-400 block font-medium mt-0.5">🌱 Salva ~${offer.impactKg} kg de comida</span>
+              <span class="text-[10px] text-emerald-300/60 block font-medium mt-0.5">🌱 Salva ~${offer.impactKg} kg de comida</span>
             </div>
 
             ${(isExpired || isSoldOut) 
-              ? `<button disabled class="px-4 py-2 bg-slate-200 text-slate-400 text-xs font-bold rounded-2xl cursor-not-allowed">
+              ? `<button disabled class="px-4 py-2 bg-emerald-950/60 text-emerald-400/50 text-xs font-bold rounded-2xl cursor-not-allowed border border-emerald-800/40">
                   ${isExpired ? 'Expirada' : 'Agotada'}
                 </button>`
-              : `<button onclick="openBookingModal('${offer.id}')" class="px-5 py-2.5 bg-gradient-to-r from-emerald-700 to-teal-800 hover:from-emerald-800 hover:to-teal-900 text-white text-xs font-bold rounded-2xl shadow-sm hover:shadow-md active:scale-95 transition flex items-center space-x-1.5">
+              : `<button onclick="openBookingModal('${offer.id}')" class="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 text-xs font-black rounded-2xl shadow-lg hover:shadow-emerald-500/25 active:scale-95 transition flex items-center space-x-1.5 border border-emerald-300/40">
                   <span>Reservar</span>
-                  <svg class="w-3.5 h-3.5 text-emerald-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                  <svg class="w-3.5 h-3.5 text-slate-950" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                 </button>`
             }
           </div>
@@ -328,12 +325,11 @@ function renderOffers() {
 function filterByCategory(category) {
   state.activeCategory = category;
   
-  // Actualizar píldoras activas
   document.querySelectorAll('.cat-filter-btn').forEach(btn => {
     if (btn.getAttribute('data-cat') === category) {
-      btn.className = "cat-filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-emerald-700 text-white shadow-sm";
+      btn.className = "cat-filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-emerald-500 text-slate-950 shadow-md border border-emerald-300";
     } else {
-      btn.className = "cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-slate-600 bg-white hover:bg-slate-100 transition-all border border-slate-200";
+      btn.className = "cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-emerald-100/80 bg-[#0A2D20] hover:bg-[#0E3A2A] transition-all border border-emerald-500/30";
     }
   });
 
@@ -352,7 +348,7 @@ function scrollToOffers() {
   }
 }
 
-// 6. Carrito Rápido (Modal Deslizante)
+// 6. Carrito Rápido (Modal Deslizante en Jade Oscuro)
 function openBookingModal(offerId) {
   const offer = state.offers.find(o => o.id === offerId);
   if (!offer || offer.stock <= 0 || offer.secondsLeft <= 0) return;
@@ -361,14 +357,14 @@ function openBookingModal(offerId) {
   state.bookingQuantity = 1;
 
   document.getElementById('modal-offer-title').textContent = offer.title;
-  document.getElementById('modal-store-name').textContent = `${offer.store} (${offer.address})`;
-  document.getElementById('modal-stock-info').textContent = `${offer.stock} paquetes disponibles en tienda`;
+  document.getElementById('modal-store-name').textContent = `${offer.store} • ${offer.address}`;
+  document.getElementById('modal-stock-info').textContent = `${offer.stock} paquetes disponibles en el local`;
   document.getElementById('modal-category-badge').textContent = offer.category.toUpperCase();
 
   const now = new Date();
   now.setSeconds(now.getSeconds() + offer.secondsLeft);
   const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  document.getElementById('modal-pickup-deadline').textContent = `Hoy antes de las ${timeStr} h`;
+  document.getElementById('modal-pickup-deadline').textContent = `Hoy antes de las ${timeStr} h (Lima)`;
 
   updateModalPrice(offer);
 
@@ -403,17 +399,17 @@ function updateModalPrice(offer) {
   document.getElementById('modal-qty-display').textContent = state.bookingQuantity;
 
   if (offer.isFree) {
-    document.getElementById('modal-original-price').textContent = `${(offer.originalPrice * state.bookingQuantity).toFixed(2)} €`;
-    document.getElementById('modal-total-price').textContent = '0.00 € (GRATIS)';
-    document.getElementById('modal-savings-tag').textContent = '100% Solidario';
+    document.getElementById('modal-original-price').textContent = `S/ ${(offer.originalPrice * state.bookingQuantity).toFixed(2)}`;
+    document.getElementById('modal-total-price').textContent = 'S/ 0.00 GRATIS';
+    document.getElementById('modal-savings-tag').textContent = '100% Solidario para Olla Común';
   } else {
     const totalOriginal = offer.originalPrice * state.bookingQuantity;
     const totalRescue = offer.rescuePrice * state.bookingQuantity;
     const saved = totalOriginal - totalRescue;
 
-    document.getElementById('modal-original-price').textContent = `${totalOriginal.toFixed(2)} €`;
-    document.getElementById('modal-total-price').textContent = `${totalRescue.toFixed(2)} €`;
-    document.getElementById('modal-savings-tag').textContent = `Ahorras ${saved.toFixed(2)} €`;
+    document.getElementById('modal-original-price').textContent = `S/ ${totalOriginal.toFixed(2)}`;
+    document.getElementById('modal-total-price').textContent = `S/ ${totalRescue.toFixed(2)}`;
+    document.getElementById('modal-savings-tag').textContent = `Ahorras S/ ${saved.toFixed(2)}`;
   }
 }
 
@@ -421,11 +417,9 @@ function confirmReservation() {
   const offer = state.offers.find(o => o.id === state.currentBookingOfferId);
   if (!offer) return;
 
-  // 1. Descontar stock
   offer.stock -= state.bookingQuantity;
 
-  // 2. Crear reserva
-  const reservationId = 'RL-' + Math.floor(1000 + Math.random() * 9000);
+  const reservationId = 'PE-' + Math.floor(1000 + Math.random() * 9000);
   const now = new Date();
   now.setSeconds(now.getSeconds() + offer.secondsLeft);
   const deadlineStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -440,7 +434,7 @@ function confirmReservation() {
     totalPrice: offer.isFree ? 0 : (offer.rescuePrice * state.bookingQuantity),
     isFree: offer.isFree,
     deadline: deadlineStr,
-    status: 'active', // 'active' | 'completed' | 'cancelled'
+    status: 'active',
     timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
   };
 
@@ -454,13 +448,12 @@ function confirmReservation() {
 
   showToast(`🎉 ¡Reserva #${reservationId} confirmada con éxito!`);
 
-  // Mostrar código QR de entrega
   setTimeout(() => {
     openQRModal(newRes.id);
   }, 350);
 }
 
-// 7. Modal de Código QR
+// 7. Modal de Código QR para el Local
 function openQRModal(resId) {
   const res = state.reservations.find(r => r.id === resId);
   if (!res) return;
@@ -469,7 +462,7 @@ function openQRModal(resId) {
   document.getElementById('qr-title').textContent = res.title;
   document.getElementById('qr-store').textContent = `${res.store} • ${res.address}`;
   document.getElementById('qr-code-text').textContent = `#${res.id}`;
-  document.getElementById('qr-deadline').textContent = `Recoger hoy antes de las ${res.deadline} h`;
+  document.getElementById('qr-deadline').textContent = `Recoger hoy antes de las ${res.deadline} h (Lima)`;
 
   const modal = document.getElementById('qr-modal');
   modal.classList.remove('opacity-0', 'pointer-events-none');
@@ -488,10 +481,10 @@ function simulateStorePickup() {
   saveState();
   updateCartBadge();
   closeQRModal();
-  showToast('✅ ¡Paquete entregado con éxito en el local! Buen provecho 🍲');
+  showToast('✅ ¡Comida rescatada con éxito en el huarique! ¡Buen provecho! 🇵🇪');
 }
 
-// 8. Drawer de Carrito / Mis Reservas
+// 8. Drawer de Carrito en Soles S/
 function toggleReservationsDrawer() {
   const drawer = document.getElementById('reservations-drawer');
   const isHidden = drawer.classList.contains('translate-x-full');
@@ -521,22 +514,22 @@ function renderDrawerList() {
   emptyState.classList.add('hidden');
 
   container.innerHTML = activeRes.map(res => `
-    <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+    <div class="bg-[#092B1F] p-4 rounded-2xl border border-emerald-500/30 shadow-md space-y-2">
       <div class="flex items-center justify-between">
-        <span class="text-xs font-black font-mono text-emerald-800">#${res.id}</span>
-        <span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Listo para recoger</span>
+        <span class="text-xs font-black font-mono text-emerald-300">#${res.id}</span>
+        <span class="text-[10px] font-bold bg-amber-400 text-slate-950 px-2 py-0.5 rounded-full">Listo para recoger</span>
       </div>
-      <h4 class="font-bold text-sm text-slate-900">${res.title}</h4>
-      <p class="text-xs text-slate-500">${res.store} • ${res.address}</p>
+      <h4 class="font-bold text-sm text-white">${res.title}</h4>
+      <p class="text-xs text-emerald-200/70">${res.store} • ${res.address}</p>
       
-      <div class="flex items-center justify-between pt-2 border-t border-slate-100 text-xs">
-        <span class="font-medium text-slate-500">Límite: <strong>${res.deadline} h</strong></span>
-        <span class="font-black text-emerald-700">${res.isFree ? 'GRATIS' : res.totalPrice.toFixed(2) + ' €'}</span>
+      <div class="flex items-center justify-between pt-2 border-t border-emerald-500/20 text-xs">
+        <span class="text-emerald-300/80">Límite: <strong>${res.deadline} h</strong></span>
+        <span class="font-black text-emerald-300 text-sm">${res.isFree ? 'GRATIS' : 'S/ ' + res.totalPrice.toFixed(2)}</span>
       </div>
 
-      <button onclick="toggleReservationsDrawer(); openQRModal('${res.id}')" class="w-full py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 mt-1">
+      <button onclick="toggleReservationsDrawer(); openQRModal('${res.id}')" class="w-full py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-black rounded-xl transition flex items-center justify-center gap-1.5 mt-1 shadow-sm">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3"/></svg>
-        <span>Ver Código QR</span>
+        <span>Ver Código QR de Retiro</span>
       </button>
     </div>
   `).join('');
@@ -555,7 +548,7 @@ function updateCartBadge() {
   }
 }
 
-// 9. Feedback Visual (Toast)
+// 9. Toast Notificación
 function showToast(msg) {
   const toast = document.getElementById('toast');
   if (!toast) return;
@@ -570,7 +563,7 @@ function showToast(msg) {
   }, 3200);
 }
 
-// 10. Inicialización
+// 10. Inicialización al cargar el DOM
 document.addEventListener('DOMContentLoaded', () => {
   initApp();
 });
