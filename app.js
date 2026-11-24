@@ -1,135 +1,141 @@
 /**
  * ========================================================
- * RESCATELOCAL PERÚ - LÓGICA DE NEGOCIO, MONEDA EN SOLES S/
+ * RESCATELOCAL IQUITOS, PERÚ - LÓGICA DE NEGOCIO Y COMERCIOS
  * ========================================================
  */
 
-// 1. Catálogo de Ofertas en Soles Peruanos (S/) con Comercios Locales
-const DEFAULT_OFFERS = [
+// 1. Catálogo de Ofertas en Soles Peruanos (S/) en Iquitos
+const DEFAULT_OFFERS_IQUITOS = [
   {
-    id: 'off-peru-1',
-    title: 'Caja Menú Criollo: Lomo Saltado con Arroz y Papas Nativas',
-    store: 'Huarique Criollo Don Lucho',
-    category: 'criollo',
-    distance: 'A 250 m • Surquillo',
-    address: 'Calle Lizardo Montero 240, Surquillo',
-    originalPrice: 24.00,
+    id: 'off-iq-1',
+    title: 'Pack Cena Selvática: Juane de Gallina Criolla con Cecina y Patacones',
+    store: 'Huarique Amazónico El Rincón del Juane',
+    category: 'selvatico',
+    landmark: 'Plaza de Armas (A 200 m)',
+    address: 'Jr. Arica 342, Cercado de Iquitos',
+    originalPrice: 25.00,
     rescuePrice: 7.50,
     isFree: false,
     stock: 3,
     initialStock: 3,
     secondsLeft: 3720, // 1h 2m
     image: 'hero-lomo-saltado.png',
-    impactKg: 1.8,
-    badgeText: 'Plato Bandera'
+    impactKg: 1.9,
+    badgeText: 'Juane Tradicional'
   },
   {
-    id: 'off-peru-2',
-    title: 'Bolsa Sorpresa: Pan Francés, Ciabattas y Empanadas de Carne',
-    store: 'Panadería & Pastelería San Antonio',
+    id: 'off-iq-2',
+    title: 'Bolsa de Pan Regional: Pan de Piso, Ciabattas y Rosquitas de Almidón',
+    store: 'Panadería & Pastelería La Loretana',
     category: 'panaderia',
-    distance: 'A 380 m • Miraflores',
-    address: 'Av. Angamos Oeste 1494, Miraflores',
-    originalPrice: 18.00,
-    rescuePrice: 5.00,
+    landmark: 'Plaza 28 de Julio (A 150 m)',
+    address: 'Av. Grau 520, frente a Plaza 28 de Julio',
+    originalPrice: 16.00,
+    rescuePrice: 4.50,
     isFree: false,
     stock: 4,
     initialStock: 4,
     secondsLeft: 7800, // 2h 10m
     image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80',
-    impactKg: 2.2,
-    badgeText: 'Horno Tradicional'
+    impactKg: 2.3,
+    badgeText: 'Horno Loretano'
   },
   {
-    id: 'off-peru-3',
-    title: 'Pack Cena: 1/4 Pollo a la Brasa con Papas y Cremas Peruanas',
-    store: 'Pollería & Brasas El Carbón Criollo',
-    category: 'polleria',
-    distance: 'A 450 m • Barranco',
-    address: 'Av. Pedro de Osma 218, Barranco',
-    originalPrice: 22.00,
-    rescuePrice: 6.50,
+    id: 'off-iq-3',
+    title: 'Combo Amazónico: Tacacho con Cecina Ahumada y Ensalada de Chonta',
+    store: 'Restaurante El Maleconero',
+    category: 'selvatico',
+    landmark: 'Malecón Tarapacá · Río Itaya',
+    address: 'Malecón Tarapacá 180, Iquitos',
+    originalPrice: 28.00,
+    rescuePrice: 8.50,
     isFree: false,
     stock: 2,
     initialStock: 2,
-    secondsLeft: 1860, // 31 mins (¡Urgente!)
-    image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=700&q=80',
-    impactKg: 2.5,
-    badgeText: 'A la Leña'
+    secondsLeft: 1800, // 30 mins (¡Urgente!)
+    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&q=80',
+    impactKg: 2.6,
+    badgeText: 'Cecina Ahumada'
   },
   {
-    id: 'off-peru-4',
-    title: 'Raciones Solidarias: Seco de Res con Frejoles y Arroz',
-    store: 'Olla Común San Cayetano / Comedor Comunitario',
+    id: 'off-iq-4',
+    title: 'Raciones Solidarias: Guiso de Pescado Paiche con Yuca y Arroz',
+    store: 'Olla Común San Pedro / Comedor Comunitario Belén',
     category: 'gratis',
-    distance: 'A 500 m • Lima Centro',
-    address: 'Jr. Junín 642, Barrios Altos',
+    landmark: 'Zona Bajo Belén (Iquitos)',
+    address: 'Sector Venecia, Bajo Belén, Iquitos',
     originalPrice: 14.00,
     rescuePrice: 0.00,
     isFree: true,
     stock: 5,
     initialStock: 5,
     secondsLeft: 4620, // 1h 17m
-    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&q=80',
-    impactKg: 3.0,
+    image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=700&q=80',
+    impactKg: 3.2,
     badgeText: '100% Solidario S/ 0.00'
   },
   {
-    id: 'off-peru-5',
-    title: 'Cajón Mercado Fresco: Paltas Hass, Choclo, Tomate y Mangos Kent',
-    store: 'Mercado N°1 de Surquillo - Puesto Doña Rosa',
-    category: 'frutas',
-    distance: 'A 200 m • Surquillo',
-    address: 'Puesto 45, Mercado N°1, Surquillo',
-    originalPrice: 20.00,
-    rescuePrice: 5.50,
+    id: 'off-iq-5',
+    title: 'Caja Huerto Amazónico: Aguajes Seleccionados, Cocona y Plátanos Bellacos',
+    store: 'Mercado Central de Iquitos - Puesto Doña Maritza',
+    category: 'mercado',
+    landmark: 'Mercado Central (Jr. San Martín)',
+    address: 'Jr. San Martín cuadra 6, Puesto 28, Iquitos',
+    originalPrice: 18.00,
+    rescuePrice: 5.00,
     isFree: false,
     stock: 3,
     initialStock: 3,
     secondsLeft: 5400, // 1h 30m
     image: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=700&q=80',
-    impactKg: 4.2,
-    badgeText: 'Huerto Fresco'
+    impactKg: 4.5,
+    badgeText: 'Fruta Amazónica'
   },
   {
-    id: 'off-peru-6',
-    title: 'Pack Natural: 2 Litros de Chicha Morada Casera y Fruta Picada',
-    store: 'Juguería & Fuente de Soda La Selva',
+    id: 'off-iq-6',
+    title: 'Botellón 2L Camu Camu Puro + Maduro Frito con Queso Regional',
+    store: 'Juguería Selva Fresca & Frutas Exóticas',
     category: 'jugos',
-    distance: 'A 600 m • San Isidro',
-    address: 'Calle Las Begonias 312, San Isidro',
-    originalPrice: 16.00,
-    rescuePrice: 4.50,
+    landmark: 'Av. Abelardo Quiñones Km 1.5',
+    address: 'Av. Abelardo Quiñones 1450, Iquitos',
+    originalPrice: 15.00,
+    rescuePrice: 4.00,
     isFree: false,
     stock: 2,
     initialStock: 2,
     secondsLeft: 1680, // 28 mins (< 30 min urgencia)
     image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=700&q=80',
     impactKg: 2.0,
-    badgeText: 'Maíz Morado'
+    badgeText: 'Camu Camu Puro'
   }
 ];
 
-// 2. Estado Global de la Plataforma
+// 2. Estado Global de la Plataforma Iquitos
 let state = {
   offers: [],
   reservations: [],
+  registeredMerchants: [],
   activeCategory: 'all',
   searchQuery: '',
-  selectedDistrict: 'Surquillo / Miraflores, Lima',
+  selectedLandmark: 'Plaza de Armas, Iquitos',
   currentBookingOfferId: null,
   bookingQuantity: 1,
   activeQRReservationId: null,
-  totalSavedKg: 42.6
+  totalSavedKg: 48.2
 };
 
 function initApp() {
-  const savedOffers = localStorage.getItem('rl_peru_offers');
-  const savedRes = localStorage.getItem('rl_peru_reservations');
-  const savedKg = localStorage.getItem('rl_peru_kg');
+  const savedOffers = localStorage.getItem('rl_iquitos_offers');
+  const savedRes = localStorage.getItem('rl_iquitos_reservations');
+  const savedMerchants = localStorage.getItem('rl_iquitos_merchants');
+  const savedKg = localStorage.getItem('rl_iquitos_kg');
 
-  state.offers = savedOffers ? JSON.parse(savedOffers) : JSON.parse(JSON.stringify(DEFAULT_OFFERS));
+  state.offers = savedOffers ? JSON.parse(savedOffers) : JSON.parse(JSON.stringify(DEFAULT_OFFERS_IQUITOS));
   state.reservations = savedRes ? JSON.parse(savedRes) : [];
+  state.registeredMerchants = savedMerchants ? JSON.parse(savedMerchants) : [
+    { name: 'Huarique Amazónico El Rincón del Juane', landmark: 'Plaza de Armas', ruc: '10458291021' },
+    { name: 'Panadería & Pastelería La Loretana', landmark: 'Plaza 28 de Julio', ruc: '20601928374' }
+  ];
   if (savedKg) state.totalSavedKg = parseFloat(savedKg);
 
   renderOffers();
@@ -138,9 +144,10 @@ function initApp() {
 }
 
 function saveState() {
-  localStorage.setItem('rl_peru_offers', JSON.stringify(state.offers));
-  localStorage.setItem('rl_peru_reservations', JSON.stringify(state.reservations));
-  localStorage.setItem('rl_peru_kg', state.totalSavedKg.toString());
+  localStorage.setItem('rl_iquitos_offers', JSON.stringify(state.offers));
+  localStorage.setItem('rl_iquitos_reservations', JSON.stringify(state.reservations));
+  localStorage.setItem('rl_iquitos_merchants', JSON.stringify(state.registeredMerchants));
+  localStorage.setItem('rl_iquitos_kg', state.totalSavedKg.toString());
 }
 
 // 3. Temporizadores en Vivo (JavaScript Puro Sin Deriva)
@@ -188,7 +195,7 @@ function formatCountdown(totalSecs) {
   return `⏳ ${pad(h)}h ${pad(m)}m ${pad(s)}s`;
 }
 
-// 4. Renderizado de Tarjetas de Ofertas (Sobre Fondo Oscuro Jade - CERO Blanco)
+// 4. Renderizado de Tarjetas de Ofertas en Iquitos (CERO Fondo Blanco)
 function renderOffers() {
   const container = document.getElementById('offers-grid');
   const emptyState = document.getElementById('empty-offers-state');
@@ -204,12 +211,13 @@ function renderOffers() {
     const matchesSearch = !q || 
       offer.title.toLowerCase().includes(q) || 
       offer.store.toLowerCase().includes(q) ||
+      offer.landmark.toLowerCase().includes(q) ||
       offer.category.toLowerCase().includes(q);
 
     return matchesCategory && matchesSearch;
   });
 
-  if (totalCountEl) totalCountEl.textContent = `${filtered.length} ofertas disponibles hoy en Lima`;
+  if (totalCountEl) totalCountEl.textContent = `${filtered.length} ofertas activas hoy en Iquitos`;
 
   if (filtered.length === 0) {
     container.innerHTML = '';
@@ -238,16 +246,16 @@ function renderOffers() {
           <img src="${offer.image}" alt="${offer.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
           <div class="absolute inset-0 bg-gradient-to-t from-[#062016] via-[#062016]/40 to-transparent"></div>
 
-          <!-- Badges Superiores -->
+          <!-- Badges Superiores con Punto de Referencia en Iquitos -->
           <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
             <span class="bg-[#062016]/90 backdrop-blur-md text-emerald-200 text-[10px] font-bold px-2.5 py-1 rounded-full shadow-md flex items-center gap-1 border border-emerald-500/40">
               <svg class="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-              ${offer.distance}
+              ${offer.landmark}
             </span>
 
             ${offer.isFree 
               ? `<span class="bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-[10px] font-black px-2.5 py-1 rounded-full shadow-md uppercase tracking-wider border border-emerald-300/40">
-                  🎁 S/ 0.00 Solidario
+                  🎁 S/ 0.00 Olla Común
                 </span>`
               : `<span class="bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 text-[11px] font-black px-2.5 py-0.5 rounded-full shadow-md">
                   -${discountPct}%
@@ -286,6 +294,7 @@ function renderOffers() {
             <h3 class="font-extrabold text-sm text-white leading-snug group-hover:text-emerald-300 transition">
               ${offer.title}
             </h3>
+            <p class="text-[11px] text-emerald-200/60 mt-1">${offer.address}</p>
           </div>
 
           <!-- Precios en Soles (S/) y Botón CTA -->
@@ -301,7 +310,7 @@ function renderOffers() {
                     <span class="text-xs text-emerald-100/50 line-through font-medium">S/ ${offer.originalPrice.toFixed(2)}</span>
                   </div>`
               }
-              <span class="text-[10px] text-emerald-300/60 block font-medium mt-0.5">🌱 Salva ~${offer.impactKg} kg de comida</span>
+              <span class="text-[10px] text-emerald-300/60 block font-medium mt-0.5">🌱 Salva ~${offer.impactKg} kg en Iquitos</span>
             </div>
 
             ${(isExpired || isSoldOut) 
@@ -321,7 +330,7 @@ function renderOffers() {
   }).join('');
 }
 
-// 5. Filtros por Categoría y Búsqueda
+// 5. Filtros por Categoría y Puntos de Referencia
 function filterByCategory(category) {
   state.activeCategory = category;
   
@@ -341,6 +350,15 @@ function handleSearch(query) {
   renderOffers();
 }
 
+function filterByLandmark(landmark) {
+  state.searchQuery = landmark;
+  const input = document.getElementById('hero-location-input');
+  if (input) input.value = landmark;
+  renderOffers();
+  scrollToOffers();
+  showToast(`📍 Mostrando ofertas cerca de: ${landmark}`);
+}
+
 function scrollToOffers() {
   const el = document.getElementById('seccion-ofertas');
   if (el) {
@@ -348,7 +366,7 @@ function scrollToOffers() {
   }
 }
 
-// 6. Carrito Rápido (Modal Deslizante en Jade Oscuro)
+// 6. Carrito Rápido (Modal en Jade Oscuro con Precios en S/)
 function openBookingModal(offerId) {
   const offer = state.offers.find(o => o.id === offerId);
   if (!offer || offer.stock <= 0 || offer.secondsLeft <= 0) return;
@@ -357,14 +375,15 @@ function openBookingModal(offerId) {
   state.bookingQuantity = 1;
 
   document.getElementById('modal-offer-title').textContent = offer.title;
-  document.getElementById('modal-store-name').textContent = `${offer.store} • ${offer.address}`;
-  document.getElementById('modal-stock-info').textContent = `${offer.stock} paquetes disponibles en el local`;
+  document.getElementById('modal-store-name').textContent = `${offer.store} • ${offer.landmark}`;
+  document.getElementById('modal-address-info').textContent = offer.address;
+  document.getElementById('modal-stock-info').textContent = `${offer.stock} paquetes disponibles en Iquitos`;
   document.getElementById('modal-category-badge').textContent = offer.category.toUpperCase();
 
   const now = new Date();
   now.setSeconds(now.getSeconds() + offer.secondsLeft);
   const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  document.getElementById('modal-pickup-deadline').textContent = `Hoy antes de las ${timeStr} h (Lima)`;
+  document.getElementById('modal-pickup-deadline').textContent = `Hoy antes de las ${timeStr} h (Hora de Iquitos)`;
 
   updateModalPrice(offer);
 
@@ -401,7 +420,7 @@ function updateModalPrice(offer) {
   if (offer.isFree) {
     document.getElementById('modal-original-price').textContent = `S/ ${(offer.originalPrice * state.bookingQuantity).toFixed(2)}`;
     document.getElementById('modal-total-price').textContent = 'S/ 0.00 GRATIS';
-    document.getElementById('modal-savings-tag').textContent = '100% Solidario para Olla Común';
+    document.getElementById('modal-savings-tag').textContent = '100% Solidario para Olla Común Belén';
   } else {
     const totalOriginal = offer.originalPrice * state.bookingQuantity;
     const totalRescue = offer.rescuePrice * state.bookingQuantity;
@@ -419,7 +438,7 @@ function confirmReservation() {
 
   offer.stock -= state.bookingQuantity;
 
-  const reservationId = 'PE-' + Math.floor(1000 + Math.random() * 9000);
+  const reservationId = 'IQT-' + Math.floor(1000 + Math.random() * 9000);
   const now = new Date();
   now.setSeconds(now.getSeconds() + offer.secondsLeft);
   const deadlineStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -429,6 +448,7 @@ function confirmReservation() {
     offerId: offer.id,
     title: offer.title,
     store: offer.store,
+    landmark: offer.landmark,
     address: offer.address,
     quantity: state.bookingQuantity,
     totalPrice: offer.isFree ? 0 : (offer.rescuePrice * state.bookingQuantity),
@@ -446,23 +466,24 @@ function confirmReservation() {
   updateCartBadge();
   closeBookingModal();
 
-  showToast(`🎉 ¡Reserva #${reservationId} confirmada con éxito!`);
+  showToast(`🎉 ¡Reserva #${reservationId} confirmada en Iquitos!`);
 
   setTimeout(() => {
     openQRModal(newRes.id);
   }, 350);
 }
 
-// 7. Modal de Código QR para el Local
+// 7. Modal de Código QR
 function openQRModal(resId) {
   const res = state.reservations.find(r => r.id === resId);
   if (!res) return;
 
   state.activeQRReservationId = resId;
   document.getElementById('qr-title').textContent = res.title;
-  document.getElementById('qr-store').textContent = `${res.store} • ${res.address}`;
+  document.getElementById('qr-store').textContent = `${res.store} • ${res.landmark}`;
+  document.getElementById('qr-address').textContent = res.address;
   document.getElementById('qr-code-text').textContent = `#${res.id}`;
-  document.getElementById('qr-deadline').textContent = `Recoger hoy antes de las ${res.deadline} h (Lima)`;
+  document.getElementById('qr-deadline').textContent = `Recoger hoy antes de las ${res.deadline} h en Iquitos`;
 
   const modal = document.getElementById('qr-modal');
   modal.classList.remove('opacity-0', 'pointer-events-none');
@@ -481,7 +502,7 @@ function simulateStorePickup() {
   saveState();
   updateCartBadge();
   closeQRModal();
-  showToast('✅ ¡Comida rescatada con éxito en el huarique! ¡Buen provecho! 🇵🇪');
+  showToast('✅ ¡Comida rescatada con éxito en el local de Iquitos! ¡Buen provecho! 🌴');
 }
 
 // 8. Drawer de Carrito en Soles S/
@@ -520,7 +541,7 @@ function renderDrawerList() {
         <span class="text-[10px] font-bold bg-amber-400 text-slate-950 px-2 py-0.5 rounded-full">Listo para recoger</span>
       </div>
       <h4 class="font-bold text-sm text-white">${res.title}</h4>
-      <p class="text-xs text-emerald-200/70">${res.store} • ${res.address}</p>
+      <p class="text-xs text-emerald-200/70">${res.store} • ${res.landmark}</p>
       
       <div class="flex items-center justify-between pt-2 border-t border-emerald-500/20 text-xs">
         <span class="text-emerald-300/80">Límite: <strong>${res.deadline} h</strong></span>
@@ -548,7 +569,127 @@ function updateCartBadge() {
   }
 }
 
-// 9. Toast Notificación
+// 9. MÓDULO DE COMERCIO: REGISTRO Y PUBLICACIÓN EN IQUITOS
+function openMerchantModal() {
+  const modal = document.getElementById('merchant-modal');
+  modal.classList.remove('opacity-0', 'pointer-events-none');
+}
+
+function closeMerchantModal() {
+  const modal = document.getElementById('merchant-modal');
+  modal.classList.add('opacity-0', 'pointer-events-none');
+}
+
+function switchMerchantTab(tab) {
+  const regForm = document.getElementById('merchant-register-form');
+  const pubForm = document.getElementById('merchant-publish-form');
+  const tabBtnReg = document.getElementById('tab-btn-register');
+  const tabBtnPub = document.getElementById('tab-btn-publish');
+
+  if (tab === 'register') {
+    regForm.classList.remove('hidden');
+    pubForm.classList.add('hidden');
+    tabBtnReg.className = "flex-1 py-2 text-xs font-bold rounded-xl bg-emerald-500 text-slate-950 shadow-md transition";
+    tabBtnPub.className = "flex-1 py-2 text-xs font-bold rounded-xl text-emerald-200 hover:text-white transition";
+  } else {
+    regForm.classList.add('hidden');
+    pubForm.classList.remove('hidden');
+    tabBtnReg.className = "flex-1 py-2 text-xs font-bold rounded-xl text-emerald-200 hover:text-white transition";
+    tabBtnPub.className = "flex-1 py-2 text-xs font-bold rounded-xl bg-emerald-500 text-slate-950 shadow-md transition";
+  }
+}
+
+function registerNewMerchant(e) {
+  e.preventDefault();
+  const name = document.getElementById('reg-store-name').value.trim();
+  const ruc = document.getElementById('reg-store-ruc').value.trim();
+  const landmark = document.getElementById('reg-store-landmark').value;
+  const address = document.getElementById('reg-store-address').value.trim();
+
+  if (!name || !ruc) {
+    showToast('⚠️ Completa el RUC y el nombre comercial');
+    return;
+  }
+
+  state.registeredMerchants.push({ name, ruc, landmark, address });
+  saveState();
+
+  // Actualizar selector de comercios en el formulario de publicación
+  const selectEl = document.getElementById('pub-store-select');
+  if (selectEl) {
+    const opt = document.createElement('option');
+    opt.value = name;
+    opt.textContent = `${name} (${landmark})`;
+    selectEl.appendChild(opt);
+    selectEl.value = name;
+  }
+
+  showToast(`🏢 ¡Comercio "${name}" registrado en Iquitos con éxito!`);
+  switchMerchantTab('publish');
+}
+
+function publishNewOffer(e) {
+  e.preventDefault();
+  const store = document.getElementById('pub-store-select').value;
+  const title = document.getElementById('pub-offer-title').value.trim();
+  const category = document.getElementById('pub-offer-cat').value;
+  const origPrice = parseFloat(document.getElementById('pub-orig-price').value) || 15.00;
+  const isFree = document.getElementById('pub-is-free').checked;
+  const rescuePrice = isFree ? 0 : (parseFloat(document.getElementById('pub-rescue-price').value) || 4.50);
+  const stock = parseInt(document.getElementById('pub-stock').value) || 3;
+  const minutes = parseInt(document.getElementById('pub-duration-mins').value) || 75;
+  const landmark = document.getElementById('pub-store-landmark').value;
+
+  if (!title) {
+    showToast('⚠️ Ingresa el nombre del alimento a rescatar');
+    return;
+  }
+
+  const categoryImages = {
+    selvatico: 'hero-lomo-saltado.png',
+    panaderia: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80',
+    mercado: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=700&q=80',
+    jugos: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=700&q=80',
+    gratis: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&q=80'
+  };
+
+  const newOffer = {
+    id: 'off-iq-' + Date.now(),
+    title: title,
+    store: store,
+    category: category,
+    landmark: landmark,
+    address: 'Iquitos, Loreto',
+    originalPrice: origPrice,
+    rescuePrice: rescuePrice,
+    isFree: isFree,
+    stock: stock,
+    initialStock: stock,
+    secondsLeft: minutes * 60,
+    image: categoryImages[category] || categoryImages.selvatico,
+    impactKg: (stock * 1.5).toFixed(1),
+    badgeText: 'Publicación Reciente'
+  };
+
+  state.offers.unshift(newOffer);
+  saveState();
+  renderOffers();
+  closeMerchantModal();
+
+  showToast(`🚀 ¡Oferta "${title}" publicada en Iquitos con temporizador activo!`);
+  scrollToOffers();
+}
+
+function togglePriceInput(isFree) {
+  const container = document.getElementById('pub-price-container');
+  if (isFree) {
+    container.classList.add('opacity-40', 'pointer-events-none');
+  } else {
+    container.classList.remove('opacity-40', 'pointer-events-none');
+  }
+}
+
+// 10. Toast Notificación
 function showToast(msg) {
   const toast = document.getElementById('toast');
   if (!toast) return;
@@ -563,7 +704,7 @@ function showToast(msg) {
   }, 3200);
 }
 
-// 10. Inicialización al cargar el DOM
+// 11. Inicialización
 document.addEventListener('DOMContentLoaded', () => {
   initApp();
 });

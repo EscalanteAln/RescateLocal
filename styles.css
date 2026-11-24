@@ -1,12 +1,12 @@
 /* ========================================================
-   RESCATELOCAL PERÚ - ESTILOS INMERSIVOS VERDE JADE & BOSQUE
-   (CERO FONDO BLANCO - ATMÓSFERA ESMERALDA PROFUNDA)
+   RESCATELOCAL IQUITOS, PERÚ - ESTILOS PERSONALIZADOS
+   Atmósfera Verde Bosque Amazónico, Jade y Tipografía Collage
+   (CERO FONDO BLANCO - RECORTE DE REVISTA ARTESANAL)
    ======================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@800;900&family=Courier+Prime:wght@700&family=Oswald:wght@600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
 
 :root {
-  /* Paleta Inmersiva Verde Jade y Bosque */
   --bg-deep: #062016;
   --bg-emerald-dark: #092C1F;
   --bg-jade-medium: #0D3B29;
@@ -17,15 +17,10 @@
   --jade-deep: #059669;
   
   --mint-soft: #A7F3D0;
-  --mint-ice: #E6FDF4;
   --cream-text: #F0FDF4;
   
   --amber-urgent: #F59E0B;
   --amber-glow: #FBBF24;
-  
-  --glass-card-bg: rgba(13, 59, 41, 0.72);
-  --glass-card-border: rgba(52, 211, 153, 0.28);
-  --glass-card-hover: rgba(17, 75, 53, 0.90);
 }
 
 * {
@@ -33,7 +28,6 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Fondo global de toda la página: CERO BLANCO */
 body {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   background: radial-gradient(circle at 50% 0%, #0d3b29 0%, #08281c 35%, #062016 100%);
@@ -45,7 +39,7 @@ body {
   padding: 0;
 }
 
-/* Scrollbar estilizada en verde jade */
+/* Scrollbar personalizada verde jade */
 ::-webkit-scrollbar {
   width: 9px;
   height: 9px;
@@ -62,7 +56,6 @@ body {
   background: #34D399;
 }
 
-/* Ocultar barra de scroll en carruseles táctiles */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -72,15 +65,112 @@ body {
 }
 
 /* ========================================================
-   HERO CON IMAGEN FULL-COVER (LOMO SALTADO PERUANO)
+   TIPOGRAFÍA ESTILO RECORTE DE REVISTA (COLLAGE / RANSOM NOTE)
+   Inspirado en la imagen de referencia: Letras recortadas de papel
+   ======================================================== */
+.cutout-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.12em 0.28em;
+  line-height: 1;
+  font-size: clamp(2.2rem, 5.8vw, 4.8rem);
+  text-transform: uppercase;
+  user-select: none;
+  box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.45), 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.cutout-letter:hover {
+  transform: scale(1.08) rotate(0deg) !important;
+  z-index: 20;
+}
+
+/* Variantes con fuentes, colores de papel y rotaciones de tijera */
+.cutout-1 {
+  background: #FEF08A; /* Amarillo cálido */
+  color: #1E293B;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  transform: rotate(-3.5deg);
+  border-radius: 3px 1px 4px 2px;
+}
+
+.cutout-2 {
+  background: #A7F3D0; /* Menta pastel */
+  color: #062016;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 900;
+  transform: rotate(2.8deg);
+  border-radius: 1px 4px 2px 3px;
+}
+
+.cutout-3 {
+  background: #FECDD3; /* Rosa / Salmón suave */
+  color: #4C0519;
+  font-family: 'Courier Prime', monospace;
+  font-weight: 700;
+  transform: rotate(-4deg);
+  border-radius: 4px 2px 3px 1px;
+}
+
+.cutout-4 {
+  background: #34D399; /* Verde Jade Luminoso */
+  color: #022C22;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  transform: rotate(3.2deg);
+  border-radius: 2px 3px 1px 4px;
+}
+
+.cutout-5 {
+  background: #FDF4E3; /* Blanco crema periódico antiguo */
+  color: #0F172A;
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  transform: rotate(-2.5deg);
+  border-radius: 3px 2px 4px 2px;
+}
+
+.cutout-6 {
+  background: #BAE6FD; /* Azul celeste pastel */
+  color: #0C4A6E;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 900;
+  transform: rotate(4deg);
+  border-radius: 1px 3px 2px 4px;
+}
+
+.cutout-7 {
+  background: #FCA5A5; /* Coral / Teja */
+  color: #450A0A;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  transform: rotate(-3deg);
+  border-radius: 4px 1px 3px 2px;
+}
+
+.cutout-8 {
+  background: #E9D5FF; /* Lavanda suave */
+  color: #3B0764;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  transform: rotate(2.2deg);
+  border-radius: 2px 4px 1px 3px;
+}
+
+/* ========================================================
+   HERO FULL-COVER (LOMO SALTADO & SELVA DE IQUITOS)
    ======================================================== */
 .hero-fullcover-container {
   position: relative;
   border-radius: 36px;
   overflow: hidden;
-  box-shadow: 0 25px 60px -15px rgba(2, 18, 11, 0.8), 0 0 0 1px rgba(52, 211, 153, 0.3);
+  box-shadow: 0 25px 60px -15px rgba(2, 18, 11, 0.85), 0 0 0 1px rgba(52, 211, 153, 0.3);
   background-image: 
-    linear-gradient(90deg, rgba(6, 32, 22, 0.95) 0%, rgba(9, 44, 31, 0.82) 50%, rgba(6, 32, 22, 0.40) 100%),
+    linear-gradient(90deg, rgba(6, 32, 22, 0.95) 0%, rgba(9, 44, 31, 0.82) 52%, rgba(6, 32, 22, 0.42) 100%),
     url('hero-lomo-saltado.png');
   background-size: cover;
   background-position: center right;
@@ -90,17 +180,16 @@ body {
 @media (max-width: 768px) {
   .hero-fullcover-container {
     background-image: 
-      linear-gradient(180deg, rgba(6, 32, 22, 0.94) 0%, rgba(9, 44, 31, 0.85) 60%, rgba(6, 32, 22, 0.70) 100%),
+      linear-gradient(180deg, rgba(6, 32, 22, 0.96) 0%, rgba(9, 44, 31, 0.88) 55%, rgba(6, 32, 22, 0.75) 100%),
       url('hero-lomo-saltado.png');
     background-position: center top;
   }
 }
 
-/* Efecto de resplandor radial en jade */
 .hero-radial-glow {
   position: absolute;
   top: -80px;
-  left: 20%;
+  left: 15%;
   width: 600px;
   height: 600px;
   background: radial-gradient(circle, rgba(52, 211, 153, 0.22) 0%, rgba(16, 185, 129, 0.05) 50%, transparent 75%);
@@ -110,22 +199,13 @@ body {
   z-index: 1;
 }
 
-/* Tipografía Gigante Bicromática */
-.title-giant {
-  font-size: clamp(2.8rem, 7vw, 5.6rem);
-  font-weight: 900;
-  letter-spacing: -0.035em;
-  line-height: 0.95;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
-
-/* Sello circular estático "Comida Peruana / 100% Sabor" */
-.stamp-badge-peru {
-  width: 105px;
-  height: 105px;
+/* Sello circular estático "IQUITOS AMAZONAS" */
+.stamp-badge-iquitos {
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   border: 2px dashed rgba(52, 211, 153, 0.7);
-  background: rgba(6, 32, 22, 0.85);
+  background: rgba(6, 32, 22, 0.88);
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
@@ -133,14 +213,14 @@ body {
   justify-content: center;
   text-align: center;
   color: #FFFFFF;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(52, 211, 153, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 15px rgba(52, 211, 153, 0.25);
   transform: rotate(-10deg);
   pointer-events: none;
   user-select: none;
 }
 
 /* ========================================================
-   TARJETAS DE VIDRIO ESMERILADO OSCURO (DARK JADE GLASS)
+   TARJETAS VIDRIO ESMERILADO JADE OSCURO
    ======================================================== */
 .jade-card {
   background: rgba(13, 59, 41, 0.78);
@@ -154,10 +234,9 @@ body {
 .jade-card:hover {
   transform: translateY(-5px);
   border-color: rgba(52, 211, 153, 0.65);
-  box-shadow: 0 16px 36px -6px rgba(2, 18, 11, 0.7), 0 0 20px rgba(52, 211, 153, 0.18);
+  box-shadow: 0 16px 36px -6px rgba(2, 18, 11, 0.75), 0 0 20px rgba(52, 211, 153, 0.2);
 }
 
-/* Píldoras y botones de vidrio */
 .glass-pill-dark {
   background: rgba(17, 75, 53, 0.6);
   backdrop-filter: blur(8px);
@@ -176,7 +255,7 @@ body {
   pointer-events: none;
 }
 
-/* Modales y Drawers en Vidrio Jade Oscuro */
+/* Modales y Drawers */
 .modal-backdrop-smooth {
   transition: opacity 0.25s ease-out;
 }
@@ -193,7 +272,7 @@ body {
   animation: urgent-pulse 1.8s infinite ease-in-out;
 }
 
-/* Láser animado del QR */
+/* Láser del QR */
 @keyframes laser-sweep {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(320%); }
