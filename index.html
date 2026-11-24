@@ -1,13 +1,719 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>rescatelocal</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RescateLocal - Plataforma de Rescate de Alimentos</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Estilos Personalizados -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Tailwind Configuration para Paleta Verde Bosque y Jade -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            forest: {
+              950: '#071912',
+              900: '#0D261C',
+              800: '#183D2E',
+              700: '#235440',
+            },
+            jade: {
+              300: '#6EE7B7',
+              400: '#34D399',
+              500: '#10B981',
+              600: '#059669',
+              700: '#047857',
+            },
+            mint: {
+              50: '#F2F7F4',
+              100: '#E5EFE9',
+              200: '#D1FAE5',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-[#F2F7F4] text-slate-800 antialiased min-h-screen">
+
+  <!-- ========================================================
+       BARRA SUPERIOR CONTACTO / AVISO (Como en la referencia)
+       ======================================================== -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-2 flex justify-between items-center text-xs font-semibold text-slate-600">
+    <div class="flex items-center space-x-2">
+      <span class="inline-flex items-center gap-1.5 bg-emerald-800 text-white px-3 py-1 rounded-full text-[11px] font-bold shadow-xs">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <span>CONTACTO</span>
+      </span>
+      <span class="text-slate-500 hidden sm:inline">soporte@rescatelocal.org · Tel: +34 93 123 4567</span>
+    </div>
+    <div class="flex items-center space-x-3 text-slate-600">
+      <span class="flex items-center gap-1">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <strong class="text-emerald-800">14 packs salvados</strong> hoy en Gràcia
+      </span>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       CONTENEDOR PRINCIPAL CENTRAL (Bordes Redondeados)
+       ======================================================== -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+
+    <!-- ========================================================
+         HERO SECTION OSCURA (Replicando la referencia)
+         ======================================================== -->
+    <header class="hero-gradient rounded-[36px] text-white p-6 sm:p-10 lg:p-14 shadow-2xl relative border border-emerald-900/50 hero-leaves-overlay">
+      
+      <!-- Resplandor esférico verde jade difuso -->
+      <div class="hero-glow"></div>
+
+      <!-- Gatito 3D Estático Asomándose en la Esquina Superior Derecha (Sin Movimiento) -->
+      <div class="absolute right-4 top-2 sm:right-8 sm:top-3 w-20 h-20 sm:w-24 sm:h-24 kitten-3d-shadow z-20 pointer-events-none opacity-95">
+        <svg viewBox="0 0 120 120" class="w-full h-full" fill="none">
+          <ellipse cx="60" cy="98" rx="42" ry="12" fill="rgba(7,25,18,0.3)"/>
+          <path d="M28 42 L12 14 Q26 20 40 32 Z" fill="#ffffff"/>
+          <path d="M30 38 L18 20 Q26 24 38 32 Z" fill="#ffccd5"/>
+          <path d="M72 32 Q86 20 100 14 L84 42 Z" fill="#ffffff"/>
+          <path d="M74 32 Q86 24 94 20 L82 38 Z" fill="#ffccd5"/>
+          <ellipse cx="56" cy="58" rx="42" ry="36" fill="#faf6ee"/>
+          <path d="M52 28 Q56 34 56 42 Q56 34 60 28" stroke="#d5c7b1" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="40" cy="56" rx="6" ry="7" fill="#0d261c"/>
+          <circle cx="38" cy="53" r="2.2" fill="#ffffff"/>
+          <ellipse cx="72" cy="56" rx="6" ry="7" fill="#0d261c"/>
+          <circle cx="70" cy="53" r="2.2" fill="#ffffff"/>
+          <polygon points="56,66 52,62 60,62" fill="#fca5a5"/>
+          <path d="M56 66 L56 70 M56 70 Q51 73 47 70 M56 70 Q61 73 65 70" stroke="#b09f87" stroke-width="2.2" stroke-linecap="round"/>
+          <ellipse cx="32" cy="67" rx="6" ry="3.5" fill="rgba(251,182,206,0.5)"/>
+          <ellipse cx="80" cy="67" rx="6" ry="3.5" fill="rgba(251,182,206,0.5)"/>
+          <ellipse cx="32" cy="92" rx="11" ry="8" fill="#ffffff"/>
+          <ellipse cx="80" cy="92" rx="11" ry="8" fill="#ffffff"/>
+          <path d="M42 84 Q56 94 70 84 L56 98 Z" fill="#34d399" stroke="#047857" stroke-width="1.5"/>
+          <circle cx="56" cy="88" r="2.5" fill="#fef08a"/>
+        </svg>
+      </div>
+
+      <!-- 1. Barra de Navegación Superior Transparente -->
+      <nav class="flex items-center justify-between pb-8 sm:pb-12 border-b border-white/10 relative z-10">
+        
+        <!-- Logo a la Izquierda -->
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-500 text-slate-950 flex items-center justify-center font-black shadow-lg">
+            <svg class="w-6 h-6 text-slate-950" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+          </div>
+          <span class="text-xl font-extrabold tracking-tight text-white">RESCATELOCAL</span>
+        </div>
+
+        <!-- Enlaces Centrales -->
+        <div class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-200">
+          <a href="#" class="text-amber-400 border-b-2 border-amber-400 pb-1">Inicio</a>
+          <a href="#seccion-ofertas" class="hover:text-white transition">Ofertas</a>
+          <a href="#seccion-categorias" class="hover:text-white transition">Comercios</a>
+          <a href="#como-funciona" class="hover:text-white transition">Cómo funciona</a>
+        </div>
+
+        <!-- Acciones a la Derecha (Buscador, Carrito con badge, Botón Iniciar Sesión) -->
+        <div class="flex items-center space-x-4">
+          
+          <!-- Lupa de búsqueda -->
+          <button onclick="scrollToOffers()" class="w-9 h-9 rounded-full glass-pill hover:bg-white/20 flex items-center justify-center text-slate-200 hover:text-white transition" title="Buscar ofertas">
+            <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </button>
+
+          <!-- Ícono de Carrito / Bolsa con Contador Dinámico -->
+          <button onclick="toggleReservationsDrawer()" class="w-9 h-9 rounded-full glass-pill hover:bg-white/20 flex items-center justify-center text-slate-200 hover:text-white transition relative" title="Mis Reservas">
+            <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            <span id="nav-cart-badge" class="hidden absolute -top-1 -right-1 w-5 h-5 bg-amber-400 text-slate-950 rounded-full text-[10px] font-black flex items-center justify-center ring-2 ring-emerald-950">
+              0
+            </span>
+          </button>
+
+          <!-- Botón Blanco Redondeado "Iniciar Sesión" -->
+          <button onclick="showToast('ℹ️ Modo Invitado activo. ¡Puedes reservar directamente sin registrarte!')" class="hidden sm:inline-flex bg-white hover:bg-slate-100 text-slate-900 font-extrabold text-xs px-5 py-2.5 rounded-full shadow-lg transition active:scale-95">
+            Iniciar Sesión
+          </button>
+        </div>
+
+      </nav>
+
+      <!-- 2. Contenido Principal del Hero (Texto a la Izquierda, Plato a la Derecha) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pt-8 sm:pt-12 relative z-10">
+        
+        <!-- Columna Izquierda: Texto Gigante Bicromático y Buscador -->
+        <div class="lg:col-span-7 space-y-5">
+          
+          <!-- Subtítulo pequeño -->
+          <div class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-emerald-300 uppercase">
+            <span>RESCATA COMIDA</span>
+            <span>•</span>
+            <span>AYUDA AL PLANETA</span>
+          </div>
+
+          <!-- Título mediano -->
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-200 leading-snug">
+            Alimentos frescos de tu barrio a punto de expirar
+          </h2>
+
+          <!-- Texto Gigante Bicromático (RESCATE en blanco, LOCAL en verde jade brillante) -->
+          <h1 class="title-giant text-white uppercase">
+            <span>RESCATE</span>
+            <span class="text-emerald-400">LOCAL</span>
+          </h1>
+
+          <!-- Descripción -->
+          <p class="text-slate-300 text-sm sm:text-base max-w-xl font-normal leading-relaxed">
+            Conectamos pequeñas panaderías, fruterías y restaurantes que tienen excedentes diarios con familias y comedores locales a precios simbólicos o completamente gratis.
+          </p>
+
+          <!-- Barra de Búsqueda Tipo Píldora (Como en la referencia) -->
+          <div class="pt-2 max-w-xl">
+            <div class="bg-white/95 rounded-full p-1.5 shadow-2xl flex items-center border border-white">
+              <div class="flex items-center pl-4 flex-1">
+                <svg class="w-5 h-5 text-emerald-700 mr-2.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <input type="text" id="hero-location-input" onkeyup="if(event.key === 'Enter') scrollToOffers()" placeholder="Ingresa tu barrio (ej. Gràcia, Eixample)..." class="w-full text-xs sm:text-sm text-slate-800 outline-none bg-transparent font-medium placeholder-slate-400">
+              </div>
+              <button onclick="scrollToOffers()" class="bg-emerald-700 hover:bg-emerald-800 active:scale-95 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-full shadow-md transition flex items-center space-x-1.5">
+                <span>Buscar Comida</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Micro-features con Íconos (Como en la referencia) -->
+          <div class="flex flex-wrap items-center gap-6 pt-4 text-xs font-semibold text-slate-300">
+            <div class="flex items-center space-x-2">
+              <span class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">⚡</span>
+              <div>
+                <span class="block text-white font-bold">Cierre en < 2h</span>
+                <span class="text-[10px] text-slate-400">Ofertas relámpago</span>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-2">
+              <span class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">🌱</span>
+              <div>
+                <span class="block text-white font-bold">100% Fresco</span>
+                <span class="text-[10px] text-slate-400">Del día garantizado</span>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-2">
+              <span class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">🤝</span>
+              <div>
+                <span class="block text-white font-bold">Comercios de Barrio</span>
+                <span class="text-[10px] text-slate-400">Apoyo comunitario</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Columna Derecha: Gran Plato de Comida Fresca con Sellos Flotantes -->
+        <div class="lg:col-span-5 relative flex justify-center mt-6 lg:mt-0">
+          
+          <!-- Sello Circular Estático "Health Food / 100% Fresco" -->
+          <div class="stamp-badge">
+            <span class="text-[10px] font-bold tracking-widest text-emerald-400 uppercase">LOCAL</span>
+            <span class="text-base font-black leading-tight text-white">HEALTHY</span>
+            <span class="text-[9px] text-slate-300 font-medium">RESCUE FOOD</span>
+          </div>
+
+          <!-- Imagen Principal del Plato Saludable -->
+          <div class="relative w-72 sm:w-88 md:w-96 aspect-square rounded-full p-2 bg-gradient-to-tr from-emerald-500/30 to-transparent shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Plato fresco y saludable" class="w-full h-full object-cover rounded-full shadow-2xl border-4 border-white/20">
+          </div>
+
+          <!-- Badge Flotante Inferior (Como el badge "$90+ Delivery Done" en la referencia) -->
+          <div class="absolute -bottom-4 right-4 sm:right-8 bg-slate-900/90 backdrop-blur-md text-white px-4 py-2.5 rounded-2xl border border-white/20 shadow-xl flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-xl bg-emerald-500 text-slate-950 flex items-center justify-center font-bold text-sm">
+              🌱
+            </div>
+            <div>
+              <span class="block text-xs font-bold text-white">38.4 kg Rescatados</span>
+              <span class="text-[10px] text-emerald-300 font-medium">Equivalente a -92 kg CO₂</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- ========================================================
+         SECCIÓN DE CATEGORÍAS CIRCULARES (Como en la referencia)
+         ======================================================== -->
+    <section id="seccion-categorias" class="pt-14 pb-8">
+      
+      <div class="flex items-center justify-between pb-6">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-800">EXPLORA TU BARRIO</span>
+          <h2 class="text-2xl font-black text-slate-900 tracking-tight">Categorías de Rescate</h2>
+        </div>
+
+        <!-- Flechas de Navegación del Carrusel < > -->
+        <div class="flex items-center space-x-2">
+          <button onclick="document.getElementById('cat-carousel').scrollBy({left: -200, behavior: 'smooth'})" class="w-9 h-9 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 flex items-center justify-center shadow-xs transition" title="Anterior">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button onclick="document.getElementById('cat-carousel').scrollBy({left: 200, behavior: 'smooth'})" class="w-9 h-9 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 flex items-center justify-center shadow-xs transition" title="Siguiente">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Carrusel Circular de Alimentos (Iconos redondos con fotos) -->
+      <div id="cat-carousel" class="flex items-center space-x-6 overflow-x-auto no-scrollbar py-2">
+        
+        <!-- 1. Panadería -->
+        <div onclick="filterByCategory('panaderia'); scrollToOffers()" class="flex flex-col items-center group cursor-pointer shrink-0">
+          <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-emerald-600 transition shadow-sm p-1 bg-white">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=200&q=80" alt="Panadería" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition">
+          </div>
+          <span class="text-xs font-bold text-slate-800 mt-2 group-hover:text-emerald-700">Panadería</span>
+        </div>
+
+        <!-- 2. Pizzería / Focaccias -->
+        <div onclick="filterByCategory('comida'); scrollToOffers()" class="flex flex-col items-center group cursor-pointer shrink-0">
+          <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-emerald-600 transition shadow-sm p-1 bg-white">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=200&q=80" alt="Pizzas" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition">
+          </div>
+          <span class="text-xs font-bold text-slate-800 mt-2 group-hover:text-emerald-700">Pizzas</span>
+        </div>
+
+        <!-- 3. Fruta y Huerta -->
+        <div onclick="filterByCategory('verduleria'); scrollToOffers()" class="flex flex-col items-center group cursor-pointer shrink-0">
+          <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-emerald-600 transition shadow-sm p-1 bg-white">
+            <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=200&q=80" alt="Fruta y Verdura" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition">
+          </div>
+          <span class="text-xs font-bold text-slate-800 mt-2 group-hover:text-emerald-700">Frutas & Huerta</span>
+        </div>
+
+        <!-- 4. Comida Casera -->
+        <div onclick="filterByCategory('comida'); scrollToOffers()" class="flex flex-col items-center group cursor-pointer shrink-0">
+          <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-emerald-600 transition shadow-sm p-1 bg-white">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" alt="Comida Casera" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition">
+          </div>
+          <span class="text-xs font-bold text-slate-800 mt-2 group-hover:text-emerald-700">Platos Caseros</span>
+        </div>
+
+        <!-- 5. Lácteos y Quesos -->
+        <div onclick="filterByCategory('lacteos'); scrollToOffers()" class="flex flex-col items-center group cursor-pointer shrink-0">
+          <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-emerald-600 transition shadow-sm p-1 bg-white">
+            <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=200&q=80" alt="Lácteos" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition">
+          </div>
+          <span class="text-xs font-bold text-slate-800 mt-2 group-hover:text-emerald-700">Quesos & Lácteos</span>
+        </div>
+
+        <!-- 6. 100% Solidario / Gratis -->
+        <div onclick="filterByCategory('gratis'); scrollToOffers()" class="flex flex-col items-center group cursor-pointer shrink-0">
+          <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-emerald-400 group-hover:border-emerald-700 transition shadow-sm p-1 bg-emerald-50">
+            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=200&q=80" alt="Solidario" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition">
+          </div>
+          <span class="text-xs font-bold text-emerald-800 mt-2 group-hover:text-emerald-950">🎁 Solidario Gratis</span>
+        </div>
+
+        <!-- 7. Repostería y Dulces -->
+        <div onclick="filterByCategory('panaderia'); scrollToOffers()" class="flex flex-col items-center group cursor-pointer shrink-0">
+          <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-emerald-600 transition shadow-sm p-1 bg-white">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=200&q=80" alt="Dulces" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition">
+          </div>
+          <span class="text-xs font-bold text-slate-800 mt-2 group-hover:text-emerald-700">Dulces & Café</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================
+         BANNER DE OFERTA ESPECIAL RELÁMPAGO (Como en la referencia)
+         ======================================================== -->
+    <section class="my-8">
+      <div class="bg-gradient-to-r from-forest-900 via-forest-800 to-forest-900 text-white rounded-[32px] p-6 sm:p-10 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between border border-emerald-900/60">
+        
+        <!-- Texto Promocional -->
+        <div class="space-y-3 z-10 max-w-lg text-center md:text-left">
+          <span class="text-xs font-bold tracking-widest text-emerald-300 uppercase">OFERTA RELÁMPAGO DEL DÍA</span>
+          <h3 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+            Hasta 70% de Descuento
+          </h3>
+          <p class="text-slate-300 text-xs sm:text-sm">
+            En excedentes de pan, pizzas y verduras del día. Reserva antes de que cierren las tiendas esta noche.
+          </p>
+          <div class="pt-2">
+            <button onclick="scrollToOffers()" class="bg-white hover:bg-slate-100 text-slate-900 font-extrabold text-xs sm:text-sm px-6 py-3 rounded-full shadow-lg transition active:scale-95">
+              Rescatar Ahora
+            </button>
+          </div>
+        </div>
+
+        <!-- Imagen de Comida a la Derecha -->
+        <div class="relative w-64 sm:w-80 h-44 sm:h-52 mt-6 md:mt-0 z-10 shrink-0">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Pizza artesana de rescate" class="w-full h-full object-cover rounded-2xl shadow-2xl border-2 border-white/20">
+        </div>
+
+        <!-- Efecto de Luz de Fondo -->
+        <div class="absolute -right-10 -bottom-10 w-80 h-80 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECCIÓN PRINCIPAL: OFERTAS ACTIVAS CON TEMPORIZADORES
+         ======================================================== -->
+    <section id="seccion-ofertas" class="pt-8 pb-12">
+      
+      <!-- Encabezado de Sección y Filtros -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-800">OFERTAS DE HOY</span>
+          <h2 class="text-2xl font-black text-slate-900 tracking-tight">Cestas y Paquetes por Expirar</h2>
+          <p class="text-xs text-slate-500 mt-0.5" id="total-active-count">Cargando ofertas disponibles...</p>
+        </div>
+
+        <!-- Píldoras de Filtro Rápido -->
+        <div class="flex items-center space-x-2 overflow-x-auto no-scrollbar">
+          <button onclick="filterByCategory('all')" data-cat="all" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-emerald-700 text-white shadow-sm">
+            🌱 Todo
+          </button>
+          <button onclick="filterByCategory('panaderia')" data-cat="panaderia" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-slate-600 bg-white hover:bg-slate-100 transition-all border border-slate-200">
+            🥖 Panadería
+          </button>
+          <button onclick="filterByCategory('verduleria')" data-cat="verduleria" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-slate-600 bg-white hover:bg-slate-100 transition-all border border-slate-200">
+            🥑 Verdulería
+          </button>
+          <button onclick="filterByCategory('comida')" data-cat="comida" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-slate-600 bg-white hover:bg-slate-100 transition-all border border-slate-200">
+            🍲 Comida lista
+          </button>
+          <button onclick="filterByCategory('gratis')" data-cat="gratis" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 transition-all border border-emerald-300">
+            🎁 100% Solidario
+          </button>
+        </div>
+      </div>
+
+      <!-- Cuadrícula Dinámica de Tarjetas de Ofertas -->
+      <div id="offers-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+        <!-- Renderizado dinámico vía app.js -->
+      </div>
+
+      <!-- Estado Vacío con Gatito 3D Estático -->
+      <div id="empty-offers-state" class="hidden text-center py-12">
+        <div class="w-24 h-24 mx-auto mb-3 kitten-3d-shadow">
+          <svg viewBox="0 0 100 100" class="w-full h-full" fill="none">
+            <ellipse cx="50" cy="88" rx="35" ry="8" fill="rgba(13,38,28,0.1)"/>
+            <ellipse cx="50" cy="55" rx="28" ry="24" fill="#faf6ee"/>
+            <path d="M30 40 L20 18 Q28 22 38 32 Z" fill="#f0e6d6"/>
+            <path d="M70 32 Q80 22 88 18 L78 40 Z" fill="#f0e6d6"/>
+            <circle cx="40" cy="52" r="4.5" fill="#0d261c"/>
+            <circle cx="38" cy="50" r="1.5" fill="#ffffff"/>
+            <circle cx="60" cy="52" r="4.5" fill="#0d261c"/>
+            <circle cx="58" cy="50" r="1.5" fill="#ffffff"/>
+            <polygon points="50,59 47,56 53,56" fill="#fca5a5"/>
+            <path d="M50 59 L50 63 M46 64 Q50 66 54 64" stroke="#a89a85" stroke-width="2" stroke-linecap="round"/>
+            <path d="M25 76 Q50 92 75 76 L70 90 Q50 96 30 90 Z" fill="#e2d2b8" stroke="#cbb898" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3 class="font-bold text-slate-700 text-base">No hay excedentes en este filtro</h3>
+        <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Prueba seleccionando la categoría "Todo" o cambiando de barrio.</p>
+        <button onclick="filterByCategory('all')" class="mt-4 px-5 py-2 bg-emerald-700 text-white text-xs font-bold rounded-full shadow-sm hover:bg-emerald-800 transition">
+          Ver todas las ofertas
+        </button>
+      </div>
+
+    </section>
+
+  </div> <!-- FIN CONTENEDOR PRINCIPAL -->
+
+
+  <!-- ========================================================
+       DRAWER LATERAL: MIS RESERVAS / CARRITO
+       ======================================================== -->
+  <div id="drawer-backdrop" onclick="toggleReservationsDrawer()" class="fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+  <div id="reservations-drawer" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-slate-50 z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col border-l border-slate-200">
+    
+    <!-- Encabezado del Drawer -->
+    <div class="p-5 bg-white border-b border-slate-200 flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
+          🎟️
+        </div>
+        <div>
+          <h3 class="font-extrabold text-base text-slate-900">Mis Reservas</h3>
+          <p class="text-[11px] text-slate-500">Muestra el código QR al recoger en el local</p>
+        </div>
+      </div>
+      <button onclick="toggleReservationsDrawer()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Lista de reservas -->
+    <div id="drawer-items-list" class="flex-1 overflow-y-auto p-5 space-y-4">
+      <!-- Se inyectan dinámicamente con app.js -->
+    </div>
+
+    <!-- Estado vacío del Drawer con Gatito 3D Estático -->
+    <div id="drawer-empty-state" class="p-8 text-center my-auto">
+      <div class="w-28 h-28 mx-auto mb-2 kitten-3d-shadow">
+        <svg viewBox="0 0 140 140" class="w-full h-full" fill="none">
+          <ellipse cx="70" cy="122" rx="55" ry="12" fill="rgba(13,38,28,0.12)"/>
+          <path d="M22 85 L70 102 L118 85 L110 118 L70 128 L30 118 Z" fill="#d7b889" stroke="#b89564" stroke-width="2"/>
+          <path d="M22 85 L70 102 L70 128 L30 118 Z" fill="#c9a776"/>
+          <path d="M48 42 L34 18 Q46 22 58 34 Z" fill="#ffffff"/>
+          <path d="M50 38 L38 22 Q46 26 56 34 Z" fill="#ffccd5"/>
+          <path d="M82 34 Q94 22 106 18 L92 42 Z" fill="#ffffff"/>
+          <path d="M84 34 Q94 26 102 22 L90 38 Z" fill="#ffccd5"/>
+          <ellipse cx="70" cy="56" rx="36" ry="30" fill="#faf6ee"/>
+          <ellipse cx="56" cy="54" rx="5.5" ry="6.5" fill="#0d261c"/>
+          <circle cx="54" cy="51" r="2" fill="#ffffff"/>
+          <ellipse cx="84" cy="54" rx="5.5" ry="6.5" fill="#0d261c"/>
+          <circle cx="82" cy="51" r="2" fill="#ffffff"/>
+          <polygon points="70,64 66,60 74,60" fill="#fca5a5"/>
+          <path d="M70 64 L70 68 M66 69 Q70 71 74 69" stroke="#a89a85" stroke-width="2" stroke-linecap="round"/>
+          <ellipse cx="48" cy="85" rx="9" ry="6.5" fill="#ffffff"/>
+          <ellipse cx="92" cy="85" rx="9" ry="6.5" fill="#ffffff"/>
+          <path d="M70 30 Q80 20 74 12 Q64 16 70 30 Z" fill="#34d399"/>
+        </svg>
+      </div>
+      <h4 class="font-extrabold text-slate-800 text-sm">Tu cesta de rescates está vacía</h4>
+      <p class="text-xs text-slate-500 mt-1 max-w-xs mx-auto">
+        Explora las ofertas del día y salva alimentos antes de que termine el horario comercial.
+      </p>
+      <button onclick="toggleReservationsDrawer(); scrollToOffers()" class="mt-4 px-5 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-full shadow-sm transition">
+        Ver ofertas del barrio
+      </button>
+    </div>
+
+  </div>
+
+
+  <!-- ========================================================
+       MODAL 1: RESERVA RÁPIDA (CARRITO)
+       ======================================================== -->
+  <div id="booking-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none modal-backdrop-smooth">
+    <div onclick="closeBookingModal()" class="absolute inset-0 bg-slate-950/60 backdrop-blur-xs"></div>
+
+    <div class="modal-dialog-smooth relative w-full max-w-md bg-white rounded-3xl p-6 shadow-2xl z-10 border border-slate-200 transform translate-y-8 opacity-0">
+      
+      <div class="flex items-start justify-between">
+        <div>
+          <span id="modal-category-badge" class="text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase bg-emerald-100 text-emerald-800">
+            Panadería
+          </span>
+          <h3 id="modal-offer-title" class="font-extrabold text-base text-slate-900 mt-1 leading-snug">
+            Bolsa Sorpresa de Pan
+          </h3>
+          <p id="modal-store-name" class="text-xs text-slate-500 font-medium mt-0.5">
+            Panadería La Espiga
+          </p>
+        </div>
+        <button onclick="closeBookingModal()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Alerta Horario Límite -->
+      <div class="mt-4 p-3 bg-amber-50 rounded-2xl border border-amber-200/80 flex items-center justify-between text-xs">
+        <div class="flex items-center space-x-2 text-amber-900">
+          <span class="text-base">⏳</span>
+          <div>
+            <span class="font-bold block">Horario de recogida:</span>
+            <span id="modal-pickup-deadline" class="text-amber-800 font-medium">Hoy antes de las 20:30 h</span>
+          </div>
+        </div>
+        <span class="text-[10px] font-black bg-amber-200 text-amber-900 px-2 py-0.5 rounded-lg">
+          Sin recargo
+        </span>
+      </div>
+
+      <!-- Selector de Cantidad -->
+      <div class="mt-4 flex items-center justify-between p-3.5 bg-slate-50 rounded-2xl border border-slate-200">
+        <div>
+          <span class="block text-xs font-bold text-slate-700">Cantidad</span>
+          <span id="modal-stock-info" class="text-[11px] text-slate-400">3 disponibles en tienda</span>
+        </div>
+        <div class="flex items-center space-x-3 bg-white p-1 rounded-xl border border-slate-200 shadow-xs">
+          <button onclick="adjustModalQty(-1)" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center justify-center font-bold text-base transition">-</button>
+          <span id="modal-qty-display" class="font-black text-sm w-6 text-center text-slate-900">1</span>
+          <button onclick="adjustModalQty(1)" class="w-8 h-8 rounded-lg bg-emerald-700 text-white hover:bg-emerald-800 flex items-center justify-center font-bold text-base transition">+</button>
+        </div>
+      </div>
+
+      <!-- Desglose de Precios -->
+      <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] text-slate-400 line-through block" id="modal-original-price">14.50 €</span>
+          <span class="text-xs font-bold text-slate-700">Total a pagar al recoger:</span>
+        </div>
+        <div class="text-right">
+          <span id="modal-total-price" class="text-xl font-black text-emerald-700 leading-none block">3.99 €</span>
+          <span id="modal-savings-tag" class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded">Ahorras 10.51 €</span>
+        </div>
+      </div>
+
+      <!-- Botón Confirmar -->
+      <button onclick="confirmReservation()" class="w-full mt-4 py-3.5 bg-gradient-to-r from-emerald-700 to-teal-800 hover:from-emerald-800 hover:to-teal-900 text-white font-extrabold text-xs rounded-2xl shadow-md transition active:scale-98 flex items-center justify-center space-x-2">
+        <svg class="w-4.5 h-4.5 text-emerald-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        <span>Confirmar y Ver Código QR</span>
+      </button>
+
+      <p class="text-center text-[10px] text-slate-400 mt-2">
+        🔒 Sin cobro adelantado. Pagas directamente en el mostrador del comercio.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       MODAL 2: CÓDIGO QR PARA RECOGIDA EN TIENDA
+       ======================================================== -->
+  <div id="qr-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none modal-backdrop-smooth">
+    <div onclick="closeQRModal()" class="absolute inset-0 bg-slate-950/70 backdrop-blur-xs"></div>
+
+    <div class="relative w-full max-w-sm bg-white rounded-3xl p-6 shadow-2xl z-10 text-center border border-slate-200">
+      
+      <button onclick="closeQRModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="inline-flex items-center space-x-1.5 bg-emerald-50 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold border border-emerald-200 mb-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span>Reserva Lista para Recoger</span>
+      </div>
+
+      <h3 id="qr-title" class="font-extrabold text-base text-slate-900 mt-1">Bolsa Sorpresa de Pan</h3>
+      <p id="qr-store" class="text-xs text-slate-500">Panadería La Espiga</p>
+
+      <!-- Código QR Vectorial Nítido con Láser de Escaneo -->
+      <div class="relative w-48 h-48 mx-auto my-3 p-3 bg-white rounded-2xl border-2 border-slate-200 shadow-sm flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent laser-beam z-10 shadow-[0_0_10px_#10B981]"></div>
+        
+        <svg class="w-full h-full" viewBox="0 0 100 100" fill="currentColor">
+          <rect x="0" y="0" width="30" height="30" fill="#0D261C" rx="4"/>
+          <rect x="5" y="5" width="20" height="20" fill="white" rx="2"/>
+          <rect x="9" y="9" width="12" height="12" fill="#10B981" rx="2"/>
+
+          <rect x="70" y="0" width="30" height="30" fill="#0D261C" rx="4"/>
+          <rect x="75" y="5" width="20" height="20" fill="white" rx="2"/>
+          <rect x="79" y="9" width="12" height="12" fill="#10B981" rx="2"/>
+
+          <rect x="0" y="70" width="30" height="30" fill="#0D261C" rx="4"/>
+          <rect x="5" y="75" width="20" height="20" fill="white" rx="2"/>
+          <rect x="9" y="79" width="12" height="12" fill="#10B981" rx="2"/>
+
+          <rect x="36" y="8" width="6" height="6" fill="#0D261C"/>
+          <rect x="46" y="8" width="6" height="14" fill="#10B981"/>
+          <rect x="56" y="16" width="6" height="6" fill="#0D261C"/>
+
+          <rect x="8" y="38" width="6" height="8" fill="#10B981"/>
+          <rect x="20" y="44" width="8" height="6" fill="#0D261C"/>
+          <rect x="36" y="36" width="14" height="14" fill="#059669" rx="2"/>
+          <rect x="56" y="38" width="8" height="8" fill="#0D261C"/>
+          <rect x="72" y="36" width="8" height="16" fill="#0D261C"/>
+          <rect x="86" y="44" width="6" height="6" fill="#10B981"/>
+
+          <rect x="36" y="60" width="8" height="8" fill="#0D261C"/>
+          <rect x="50" y="56" width="6" height="16" fill="#10B981"/>
+          <rect x="62" y="66" width="14" height="6" fill="#0D261C"/>
+
+          <rect x="38" y="78" width="8" height="14" fill="#10B981"/>
+          <rect x="52" y="78" width="18" height="6" fill="#0D261C"/>
+          <rect x="76" y="76" width="16" height="16" fill="#059669" rx="3"/>
+        </svg>
+      </div>
+
+      <!-- Código numérico -->
+      <div class="bg-slate-100 rounded-xl py-1.5 px-3 inline-block">
+        <span class="text-[11px] text-slate-500 font-medium">Código:</span>
+        <span id="qr-code-text" class="text-sm font-black text-slate-900 tracking-widest ml-1 font-mono">#RL-7492</span>
+      </div>
+
+      <p id="qr-deadline" class="text-xs text-amber-800 font-semibold mt-2">
+        Recoger hoy antes de las 20:30 h
+      </p>
+
+      <div class="mt-4">
+        <button onclick="simulateStorePickup()" class="w-full py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs rounded-xl shadow-sm transition flex items-center justify-center gap-1.5">
+          <svg class="w-4 h-4 text-emerald-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Simular entrega en tienda (Completar)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       TOAST FLOTANTE DE NOTIFICACIÓN
+       ======================================================== -->
+  <div id="toast" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center space-x-2 text-xs font-semibold border border-white/20 transform -translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <span>✨</span>
+    <span id="toast-msg">Acción completada</span>
+  </div>
+
+
+  <!-- ========================================================
+       FOOTER (Pie de página ecológico)
+       ======================================================== -->
+  <footer class="bg-forest-950 text-white pt-12 pb-8 border-t border-emerald-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-white/10 text-xs">
+        <div class="space-y-3">
+          <span class="text-base font-extrabold text-white tracking-tight">RESCATELOCAL</span>
+          <p class="text-slate-400 leading-relaxed">
+            Reduciendo el desperdicio de comida conectando pequeños comercios de barrio con vecinos y comedores comunitarios.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-200 uppercase tracking-wider mb-2">Comercios</h4>
+          <ul class="space-y-1.5 text-slate-400">
+            <li><a href="#" class="hover:text-emerald-400">Panaderías locales</a></li>
+            <li><a href="#" class="hover:text-emerald-400">Fruterías y verduras</a></li>
+            <li><a href="#" class="hover:text-emerald-400">Comida preparada</a></li>
+            <li><a href="#" class="hover:text-emerald-400">Donaciones gratuitas</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-200 uppercase tracking-wider mb-2">Proyecto</h4>
+          <ul class="space-y-1.5 text-slate-400">
+            <li><a href="#" class="hover:text-emerald-400">Impacto ecológico</a></li>
+            <li><a href="#" class="hover:text-emerald-400">Cómo funciona</a></li>
+            <li><a href="#" class="hover:text-emerald-400">Comedores sociales</a></li>
+            <li><a href="#" class="hover:text-emerald-400">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-200 uppercase tracking-wider mb-2">Contacto</h4>
+          <p class="text-slate-400">hola@rescatelocal.org</p>
+          <p class="text-slate-400 mt-1">Barcelona, España</p>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400">
+        <span>© 2026 RescateLocal · Plataforma comunitaria de reducción de desperdicio de alimentos</span>
+        <span class="mt-2 sm:mt-0">Diseñado con enfoque mobile-first & sostenibilidad 🌿</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Principal de la Aplicación -->
+  <script src="app.js"></script>
+
+</body>
 </html>

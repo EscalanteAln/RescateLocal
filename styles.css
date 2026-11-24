@@ -1,0 +1,183 @@
+/* ========================================================
+   RESCATELOCAL - ESTILOS PERSONALIZADOS
+   Paleta: Verde Bosque (#0D261C / #183D2E), Verde Jade (#10B981 / #34D399), 
+           Menta Suave (#F2F7F4) y Blanco Crema (#FFFFFF)
+   ======================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --forest-deep: #071912;
+  --forest-dark: #0D261C;
+  --forest-medium: #183D2E;
+  --forest-light: #235440;
+  
+  --jade-bright: #34D399;
+  --jade-primary: #10B981;
+  --jade-dark: #059669;
+  --jade-deep: #047857;
+  
+  --mint-bg: #F2F7F4;
+  --mint-soft: #E5EFE9;
+  --mint-accent: #D1FAE5;
+  
+  --cream-white: #FFFFFF;
+  --cream-soft: #FBFDFB;
+  
+  --amber-urgent: #F59E0B;
+  --amber-light: #FEF3C7;
+  
+  --text-dark: #0F172A;
+  --text-muted: #64748B;
+  --border-light: #E2E8F0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--mint-bg);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Scrollbar estilizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--mint-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Ocultar barra de scroll en carruseles táctiles horizontales */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Degradados temáticos de la Hero Section (como en la referencia) */
+.hero-gradient {
+  background: radial-gradient(circle at 75% 30%, #204e3b 0%, #113124 45%, #0a1f16 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.18) 0%, rgba(16, 185, 129, 0.05) 50%, transparent 70%);
+  top: -100px;
+  right: -50px;
+  pointer-events-none;
+  border-radius: 9999px;
+  filter: blur(40px);
+}
+
+.hero-leaves-overlay {
+  background-image: radial-gradient(rgba(52, 211, 153, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Efecto de texto gigante bicromático (RESCATE en blanco, LOCAL en jade) */
+.title-giant {
+  font-size: clamp(2.5rem, 6.5vw, 5.2rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+/* Sello circular estático "Health Food / 100% Fresco" */
+.stamp-badge {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(255, 255, 255, 0.4);
+  background: rgba(13, 38, 28, 0.65);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #FFFFFF;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  transform: rotate(-8deg);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Tarjetas y Efectos Elevados */
+.card-hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+.card-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(13, 38, 28, 0.14);
+}
+
+/* Badges con efecto Glassmorphism */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-pill-dark {
+  background: rgba(10, 31, 22, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Gatitos 3D Estáticos (Sombras naturales difusas sin movimiento) */
+.kitten-3d-shadow {
+  filter: drop-shadow(0 8px 12px rgba(13, 38, 28, 0.18));
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Transiciones de Modales y Drawers */
+.modal-backdrop-smooth {
+  transition: opacity 0.25s ease-out;
+}
+.modal-dialog-smooth {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-out;
+}
+
+/* Animación sutil de pulso para urgencia < 30 min */
+@keyframes urgent-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.02); opacity: 0.9; }
+}
+.animate-urgent {
+  animation: urgent-pulse 1.8s infinite ease-in-out;
+}
+
+/* Línea de escaneo láser en el QR */
+@keyframes laser-scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(320%); }
+}
+.laser-beam {
+  animation: laser-scan 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
