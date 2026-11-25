@@ -294,8 +294,8 @@ body {
 }
 
 /* ========================================================
-   SECCIÓN CÓMO FUNCIONA: FONDO FOTOGRÁFICO REAL DE CAFETERÍA VERDE
-   (Fotografía nítida y visible + sombreado suave solo tras texto)
+   SECCIÓN CÓMO FUNCIONA: FONDO FOTOGRÁFICO NÍTIDO DE CAFETERÍA
+   (Máxima nitidez y calidad + sombreado ligero únicamente tras texto)
    ======================================================== */
 .cafe-hero-wrapper {
   position: relative;
@@ -303,18 +303,19 @@ body {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(52, 211, 153, 0.45);
+  image-rendering: -webkit-optimize-contrast;
   border-radius: 36px;
   overflow: hidden;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(52, 211, 153, 0.45);
 }
 
-/* Sombreado muy suave general sólo para unificar tonalidad sin tapar la foto */
+/* Sombreado ambiente muy suave general que no altera la foto */
 .cafe-ambient-vignette {
-  background: radial-gradient(circle at 75% 50%, rgba(0, 0, 0, 0.05) 0%, rgba(4, 18, 12, 0.25) 100%);
+  background: radial-gradient(circle at 75% 50%, rgba(0, 0, 0, 0.02) 0%, rgba(3, 16, 10, 0.22) 100%);
   pointer-events: none;
 }
 
-/* Tarjeta Glassmorphism: Sombreado suave detrás del texto para máxima legibilidad */
+/* Tarjeta Glassmorphism: Sombreado ligero únicamente detrás del texto */
 .glass-info-card {
   background: rgba(5, 22, 14, 0.78);
   backdrop-filter: blur(12px);
@@ -324,21 +325,106 @@ body {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 30px rgba(52, 211, 153, 0.12);
 }
 
-/* Contenedor del escenario 3D del gato */
-.cat-3d-stage {
+/* ========================================================
+   MASCOTA INTERACTIVA: GATO BLANCO DE OJOS AZULES
+   ======================================================== */
+.cat-interactive-stage {
   position: relative;
   width: 100%;
-  min-height: 420px;
-  height: 100%;
-  cursor: grab;
-  user-select: none;
-  touch-action: none;
+  max-width: 320px;
+  height: 400px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  perspective: 800px;
+  margin: 0 auto;
+  user-select: none;
+  cursor: pointer;
 }
-.cat-3d-stage:active {
-  cursor: grabbing;
+
+.cat-avatar-wrapper {
+  position: relative;
+  width: 235px;
+  height: auto;
+  transform-style: preserve-3d;
+  transition: transform 0.12s cubic-bezier(0.2, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.cat-avatar-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 22px rgba(2, 18, 11, 0.75)) drop-shadow(0 0 14px rgba(52, 211, 153, 0.22));
+  animation: cat-breathe 4s ease-in-out infinite;
+  transform-origin: bottom center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Sombra de apoyo en el suelo de la cafetería */
+.cat-floor-shadow {
+  position: absolute;
+  bottom: 8px;
+  width: 200px;
+  height: 24px;
+  background: radial-gradient(ellipse at center, rgba(2, 14, 9, 0.75) 0%, rgba(2, 14, 9, 0) 75%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Animación de respiración sutil */
+@keyframes cat-breathe {
+  0%, 100% {
+    transform: scale(1.0) translateY(0);
+  }
+  50% {
+    transform: scale(1.018, 0.985) translateY(2px);
+  }
+}
+
+/* Animación de alegría/salto al hacer clic */
+@keyframes cat-happy-jump {
+  0% {
+    transform: scale(1.0) translateY(0);
+  }
+  25% {
+    transform: scale(1.08, 0.92) translateY(-16px);
+  }
+  50% {
+    transform: scale(0.96, 1.05) translateY(-5px);
+  }
+  75% {
+    transform: scale(1.02, 0.98) translateY(-2px);
+  }
+  100% {
+    transform: scale(1.0) translateY(0);
+  }
+}
+
+.cat-jump-active {
+  animation: cat-happy-jump 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* Parpadeo sutil en los ojos azules */
+.cat-eyes-glow {
+  position: absolute;
+  top: 24%;
+  left: 45%;
+  width: 26px;
+  height: 10px;
+  background: radial-gradient(ellipse, rgba(56, 189, 248, 0.65) 0%, rgba(56, 189, 248, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.65;
+  animation: cat-eyes-pulse 5.2s infinite;
+}
+
+@keyframes cat-eyes-pulse {
+  0%, 88%, 100% { opacity: 0.65; transform: scale(1); }
+  92% { opacity: 0; transform: scale(1, 0.1); }
+  95% { opacity: 0.65; transform: scale(1); }
 }
 
 /* Globo de Diálogo (Speech Bubble de Michi) */

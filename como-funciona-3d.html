@@ -126,35 +126,43 @@
             </div>
 
             <!-- ========================================================
-                 COLUMNA DERECHA: MASCOTA 3D INTERACTIVA (THREE.JS GATO BLANCO)
+                 COLUMNA DERECHA: MASCOTA INTERACTIVA (GATO BLANCO DE OJOS AZULES)
                  ======================================================== -->
-            <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+            <div class="lg:col-span-5 flex flex-col items-center justify-center relative select-none">
               
-              <!-- Contenedor del Visor 3D -->
-              <div id="cat-3d-stage" class="cat-3d-stage relative w-full h-[360px] sm:h-[420px] rounded-3xl overflow-hidden flex items-center justify-center">
-                
-                <!-- Globo de Diálogo Flotante (Eco-Tips al interactuar) -->
-                <div id="cat-speech-bubble" class="cat-speech-bubble opacity-0 scale-90 pointer-events-none transition-all duration-300">
-                  <div class="flex items-start gap-2.5">
-                    <span class="text-base shrink-0">🐾</span>
-                    <div>
-                      <span class="block text-[10px] font-black uppercase text-emerald-400 tracking-wider">MICHI GUARDIÁN DICE:</span>
-                      <p id="cat-tip-text" class="text-xs font-semibold text-white mt-0.5">
-                        ¡Miau! ¿Sabías que en Iquitos rescatar 1 kg de comida evita hasta 2.5 kg de CO₂ en nuestra Amazonía? 🌱
-                      </p>
-                    </div>
+              <!-- Globo de Diálogo Flotante (Eco-Tips al interactuar / clic) -->
+              <div id="cat-speech-bubble" class="cat-speech-bubble opacity-0 scale-90 pointer-events-none transition-all duration-300">
+                <div class="flex items-start gap-2.5">
+                  <span class="text-base shrink-0">🐾</span>
+                  <div>
+                    <span class="block text-[10px] font-black uppercase text-emerald-400 tracking-wider">MICHI GUARDIÁN DICE:</span>
+                    <p id="cat-tip-text" class="text-xs font-semibold text-white mt-0.5">
+                      ¡Miau! ¿Sabías que en Iquitos rescatar 1 kg de comida evita hasta 2.5 kg de CO₂ en nuestra Amazonía? 🌱
+                    </p>
                   </div>
                 </div>
+              </div>
 
-                <!-- Canvas de Three.js montado dinámicamente -->
-                <div id="cat-3d-canvas-container" class="w-full h-full"></div>
+              <!-- Escenario del Gato Interactivo -->
+              <div id="cat-stage" class="cat-interactive-stage relative flex items-center justify-center cursor-pointer group">
+                
+                <!-- Sombra de contacto en el suelo de la cafetería -->
+                <div class="cat-floor-shadow"></div>
+
+                <!-- Imagen recortada del gato con respiración y efecto tilt 2.5D -->
+                <div id="cat-avatar-wrapper" class="cat-avatar-wrapper">
+                  <img id="cat-avatar-img" src="cat-blue-eyes.png" alt="Michi de Ojos Azules - Mascota Rescate Local" class="cat-avatar-img" draggable="false">
+                  
+                  <!-- Parpadeo y destello sutil en los ojos azules -->
+                  <div class="cat-eyes-glow"></div>
+                </div>
 
               </div>
 
               <!-- Barra de Control e Interacción con Michi -->
               <div class="w-full max-w-sm mt-3 px-2 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-center">
-                <p class="text-[11px] text-emerald-200/70 font-medium">
-                  ✨ <strong class="text-emerald-300">Interactúa con Michi:</strong> Arrastra para girar • El gato sigue tu cursor
+                <p class="text-[11px] text-emerald-200/80 font-medium">
+                  ✨ <strong class="text-emerald-300">Pasa el cursor o haz clic</strong> sobre Michi
                 </p>
                 <button id="cheer-cat-btn" onclick="triggerCatCheer()" class="px-4 py-1.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 text-xs font-black shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 active:scale-95 shrink-0 flex items-center gap-1.5 border border-emerald-200/40">
                   <span>Saludar a Michi</span>
@@ -173,8 +181,8 @@
 
   </div>
 
-  <!-- Mascota 3D con Three.js -->
-  <script src="cat3d.js"></script>
+  <!-- Mascota Interactiva con Ojos Azules (Michi Guardián) -->
+  <script src="cat-interactive.js"></script>
 
 </body>
 </html>
