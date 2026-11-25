@@ -294,47 +294,41 @@ body {
 }
 
 /* ========================================================
-   SECCIÓN CÓMO FUNCIONA: FONDO CAFETERÍA VERDE + THREE.JS 3D
+   SECCIÓN CÓMO FUNCIONA: FONDO FOTOGRÁFICO REAL DE CAFETERÍA VERDE
+   (Fotografía nítida y visible + sombreado suave solo tras texto)
    ======================================================== */
 .cafe-hero-wrapper {
   position: relative;
-  background-image: 
-    linear-gradient(
-      135deg, 
-      rgba(4, 20, 13, 0.88) 0%, 
-      rgba(7, 34, 24, 0.82) 48%, 
-      rgba(5, 24, 16, 0.90) 100%
-    ),
-    url('bg-green-cafe.jpg');
+  background-image: url('bg-green-cafe.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  box-shadow: 0 25px 60px -15px rgba(2, 18, 11, 0.9), 0 0 0 1px rgba(52, 211, 153, 0.35);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(52, 211, 153, 0.45);
   border-radius: 36px;
   overflow: hidden;
 }
 
-/* Capa de desenfoque sutil interna */
-.cafe-backdrop-blur {
-  backdrop-filter: blur(3.5px);
-  -webkit-backdrop-filter: blur(3.5px);
+/* Sombreado muy suave general sólo para unificar tonalidad sin tapar la foto */
+.cafe-ambient-vignette {
+  background: radial-gradient(circle at 75% 50%, rgba(0, 0, 0, 0.05) 0%, rgba(4, 18, 12, 0.25) 100%);
+  pointer-events: none;
 }
 
-/* Tarjeta Glassmorphism para información */
+/* Tarjeta Glassmorphism: Sombreado suave detrás del texto para máxima legibilidad */
 .glass-info-card {
-  background: rgba(6, 28, 18, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(52, 211, 153, 0.32);
+  background: rgba(5, 22, 14, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(52, 211, 153, 0.35);
   border-radius: 28px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(52, 211, 153, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 30px rgba(52, 211, 153, 0.12);
 }
 
 /* Contenedor del escenario 3D del gato */
 .cat-3d-stage {
   position: relative;
   width: 100%;
-  min-height: 380px;
+  min-height: 420px;
   height: 100%;
   cursor: grab;
   user-select: none;
