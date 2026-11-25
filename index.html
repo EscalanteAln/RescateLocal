@@ -120,11 +120,12 @@
       <!-- 1. Barra de Navegación Superior -->
       <nav class="flex items-center justify-between pb-8 sm:pb-12 border-b border-emerald-500/20 relative z-10">
         
-        <!-- Logo Oficial RescateLocal -->
-        <a href="#" class="flex items-center space-x-3 group">
-          <img src="logo-rescate-local.png" alt="Logo Oficial Rescate Local" class="h-11 sm:h-12 w-auto object-contain filter drop-shadow-[0_2px_8px_rgba(52,211,153,0.35)] group-hover:scale-105 transition-transform duration-200">
-          <div class="hidden sm:flex items-center space-x-1.5">
-            <span class="bg-emerald-500/30 text-emerald-300 border border-emerald-400/30 text-[9px] font-black px-1.5 py-0.5 rounded-md">IQUITOS</span>
+        <!-- Logo Oficial RescateLocal (Más grande, limpio y bien alineado) -->
+        <a href="#" class="flex items-center space-x-3 group py-1">
+          <img src="logo-rescate-local.png" alt="Logo Oficial Rescate Local" class="h-14 sm:h-16 w-auto object-contain filter drop-shadow-[0_4px_12px_rgba(52,211,153,0.4)] group-hover:scale-105 transition-all duration-200">
+          <div class="hidden sm:flex flex-col justify-center">
+            <span class="text-xs font-black tracking-wider text-emerald-300 uppercase leading-tight">Iquitos · Loreto</span>
+            <span class="text-[10px] text-emerald-200/70 font-semibold leading-tight">Cero Desperdicio</span>
           </div>
         </a>
 
@@ -941,48 +942,80 @@
 
 
   <!-- ========================================================
-       FOOTER INMERSIVO: RESCATELOCAL IQUITOS
+       FOOTER INMERSIVO: LOGO CENTRAL DESTACADO + LINKS ORGANIZADOS
        ======================================================== -->
-  <footer class="bg-[#03140D] text-white pt-12 pb-8 border-t border-emerald-950">
+  <footer class="bg-[#03140D] text-white pt-14 pb-10 border-t border-emerald-950/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-emerald-900/40 text-xs">
-        <div class="space-y-4">
-          <div class="flex items-center space-x-3">
-            <img src="logo-rescate-local.png" alt="Rescate Local Logo Oficial" class="h-16 sm:h-20 w-auto object-contain filter drop-shadow-[0_4px_16px_rgba(52,211,153,0.35)] hover:scale-105 transition-transform duration-200">
-          </div>
-          <p class="text-emerald-200/70 leading-relaxed font-medium">
-            Plataforma hiperlocal para rescatar comida loretana fresca, reduciendo el desperdicio en huariques, panaderías y mercados de Iquitos.
+      
+      <!-- 1. ELEMENTO CENTRAL DESTACADO: LOGO OFICIAL GRANDE DE CIERRE -->
+      <div class="text-center pb-12 border-b border-emerald-900/40 space-y-4">
+        <div class="inline-block group cursor-pointer">
+          <img src="logo-rescate-local.png" alt="Logo Oficial Rescate Local" class="h-28 sm:h-36 md:h-40 w-auto mx-auto object-contain filter drop-shadow-[0_6px_20px_rgba(52,211,153,0.35)] group-hover:scale-105 transition-transform duration-300">
+        </div>
+        
+        <div class="max-w-lg mx-auto space-y-1.5">
+          <h3 class="text-lg sm:text-xl font-black text-white tracking-tight uppercase">
+            Plataforma de Rescate de Alimentos · Iquitos
+          </h3>
+          <p class="text-xs sm:text-sm text-emerald-200/70 leading-relaxed font-medium">
+            Conectamos a panaderías, restaurantes y mercados de barrio en Iquitos con familias y comedores comunitarios. Cero desperdicio, ahorro diario y protección de nuestra Amazonía.
           </p>
         </div>
-        <div>
-          <h4 class="font-bold text-emerald-300 uppercase tracking-wider mb-2">Puntos de Iquitos</h4>
-          <ul class="space-y-1.5 text-emerald-200/60">
-            <li><a href="#" onclick="filterByLandmark('Plaza de Armas')" class="hover:text-emerald-400">Plaza de Armas de Iquitos</a></li>
-            <li><a href="#" onclick="filterByLandmark('Malecón Tarapacá')" class="hover:text-emerald-400">Malecón Tarapacá (Río Itaya)</a></li>
-            <li><a href="#" onclick="filterByLandmark('Plaza 28 de Julio')" class="hover:text-emerald-400">Plaza 28 de Julio</a></li>
-            <li><a href="#" onclick="filterByLandmark('Mercado Central')" class="hover:text-emerald-400">Mercado Central & Jr. San Martín</a></li>
-            <li><a href="#" onclick="filterByLandmark('Belén')" class="hover:text-emerald-400">Zona Bajo Belén</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-bold text-emerald-300 uppercase tracking-wider mb-2">Comunidad</h4>
-          <ul class="space-y-1.5 text-emerald-200/60">
-            <li><a href="#" class="hover:text-emerald-400">Ollas Comunes de Belén (S/ 0.00)</a></li>
-            <li><a href="#" onclick="openMerchantModal()" class="hover:text-emerald-400">Registrar mi Puesto o Huarique</a></li>
-            <li><a href="#" class="hover:text-emerald-400">Impacto en la Amazonía</a></li>
-            <li><a href="#" class="hover:text-emerald-400">Preguntas Frecuentes</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-bold text-emerald-300 uppercase tracking-wider mb-2">Contacto</h4>
-          <p class="text-emerald-200/60">iquitos@rescatelocal.pe</p>
-          <p class="text-emerald-200/60 mt-1">Iquitos, Loreto, Perú</p>
-        </div>
       </div>
+
+      <!-- 2. COLUMNAS DE NAVEGACIÓN Y CONTACTO BIEN DISTRIBUIDAS -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 py-10 text-xs border-b border-emerald-900/40">
+        
+        <!-- Columna 1: Puntos de Iquitos -->
+        <div class="space-y-2.5">
+          <h4 class="font-bold text-emerald-300 uppercase tracking-wider text-xs flex items-center gap-1.5">
+            <span>📍 Puntos Clave en Iquitos</span>
+          </h4>
+          <ul class="space-y-2 text-emerald-200/70">
+            <li><a href="#" onclick="filterByLandmark('Plaza de Armas')" class="hover:text-emerald-300 transition">Plaza de Armas de Iquitos (Cercado)</a></li>
+            <li><a href="#" onclick="filterByLandmark('Malecón Tarapacá')" class="hover:text-emerald-300 transition">Malecón Tarapacá (Río Itaya)</a></li>
+            <li><a href="#" onclick="filterByLandmark('Plaza 28 de Julio')" class="hover:text-emerald-300 transition">Plaza 28 de Julio & Av. Grau</a></li>
+            <li><a href="#" onclick="filterByLandmark('Mercado Central')" class="hover:text-emerald-300 transition">Mercado Central & Jr. San Martín</a></li>
+            <li><a href="#" onclick="filterByLandmark('Belén')" class="hover:text-emerald-300 transition">Zona Bajo Belén (Comunidades)</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 2: Comunidad -->
+        <div class="space-y-2.5">
+          <h4 class="font-bold text-emerald-300 uppercase tracking-wider text-xs flex items-center gap-1.5">
+            <span>🤝 Comunidad y Comercios</span>
+          </h4>
+          <ul class="space-y-2 text-emerald-200/70">
+            <li><a href="#" onclick="filterByCategory('gratis'); scrollToOffers();" class="hover:text-emerald-300 transition">Ollas Comunes de Belén (S/ 0.00 Donación)</a></li>
+            <li><a href="#" onclick="openMerchantModal()" class="hover:text-emerald-300 transition text-amber-300 font-bold">🏪 Registrar mi Comercio / Huarique</a></li>
+            <li><a href="#como-funciona" class="hover:text-emerald-300 transition">Impacto Ecológico en Loreto</a></li>
+            <li><a href="#" class="hover:text-emerald-300 transition">Preguntas Frecuentes de Familias</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Contacto -->
+        <div class="space-y-2.5">
+          <h4 class="font-bold text-emerald-300 uppercase tracking-wider text-xs flex items-center gap-1.5">
+            <span>📬 Contacto y Soporte</span>
+          </h4>
+          <p class="text-emerald-200/70 leading-relaxed">
+            ¿Tienes dudas o quieres colaborar en Iquitos?
+          </p>
+          <div class="space-y-1 text-emerald-300 font-bold">
+            <p>✉️ iquitos@rescatelocal.pe</p>
+            <p>📍 Jr. Putumayo cda. 3, Iquitos, Loreto</p>
+            <p>⏱️ Horario de rescate: 18:00 - 21:30 hrs</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 3. BARRA DE CIERRE DE DERECHOS -->
       <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-emerald-300/50">
         <span>© 2026 RescateLocal Iquitos · Cero desperdicio en el corazón de la Amazonía peruana</span>
-        <span class="mt-2 sm:mt-0">Precios en Soles (S/) · Diseñado para la comunidad loretana 🌴</span>
+        <span class="mt-2 sm:mt-0 font-medium">Precios en Soles (S/) · Diseñado para la comunidad loretana 🌴</span>
       </div>
+
     </div>
   </footer>
 
