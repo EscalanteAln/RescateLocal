@@ -8,28 +8,62 @@
 const DEFAULT_OFFERS_IQUITOS = [
   {
     id: 'off-iq-1',
-    title: 'Pack Cena Selvática: Juane de Gallina Criolla con Cecina y Patacones',
-    store: 'Huarique Amazónico El Rincón del Juane',
-    category: 'selvatico',
-    landmark: 'Plaza de Armas (A 200 m)',
-    address: 'Jr. Arica 342, Cercado de Iquitos',
-    originalPrice: 25.00,
-    rescuePrice: 7.50,
+    title: 'Plato Bandera: Lomo Saltado Criollo al Wok con Papas Nativas, Arroz y Ají Verde',
+    store: 'Restaurante Tradición Criolla & Selvática',
+    category: 'criollo',
+    landmark: 'Plaza de Armas (A 180 m)',
+    address: 'Jr. Putumayo 245, Cercado de Iquitos',
+    originalPrice: 28.00,
+    rescuePrice: 8.50,
     isFree: false,
     stock: 3,
     initialStock: 3,
-    secondsLeft: 3720, // 1h 2m
+    secondsLeft: 2700, // 45m
     image: 'hero-lomo-saltado.png',
-    impactKg: 1.9,
-    badgeText: 'Juane Tradicional'
+    impactKg: 2.4,
+    badgeText: 'Lomo Saltado Jugoso'
   },
   {
     id: 'off-iq-2',
+    title: 'Pack Almuerzo Selvático: Juane de Gallina Criolla con Cecina y Patacones',
+    store: 'Huarique Amazónico El Rincón del Juane',
+    category: 'selvatico',
+    landmark: 'Malecón Tarapacá (A 200 m)',
+    address: 'Jr. Arica 342, Cercado de Iquitos',
+    originalPrice: 26.00,
+    rescuePrice: 7.50,
+    isFree: false,
+    stock: 4,
+    initialStock: 4,
+    secondsLeft: 3720, // 1h 2m
+    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&q=80',
+    impactKg: 2.1,
+    badgeText: 'Juane Tradicional'
+  },
+  {
+    id: 'off-iq-3',
+    title: 'Bol Saludable: Ensalada de Huerta Fresca, Chonta y Palmitos con Vinagreta Amazónica',
+    store: 'BioCafé & Ensaladas Selva Viva',
+    category: 'ensaladas',
+    landmark: 'Plaza 28 de Julio (A 100 m)',
+    address: 'Jr. Bermúdez 190, frente a Plaza 28 de Julio',
+    originalPrice: 18.00,
+    rescuePrice: 5.50,
+    isFree: false,
+    stock: 3,
+    initialStock: 3,
+    secondsLeft: 2100, // 35 min
+    image: 'hero-salad.jpg',
+    impactKg: 1.5,
+    badgeText: '100% Fresco y Natural'
+  },
+  {
+    id: 'off-iq-4',
     title: 'Bolsa de Pan Regional: Pan de Piso, Ciabattas y Rosquitas de Almidón',
     store: 'Panadería & Pastelería La Loretana',
     category: 'panaderia',
     landmark: 'Plaza 28 de Julio (A 150 m)',
-    address: 'Av. Grau 520, frente a Plaza 28 de Julio',
+    address: 'Av. Grau 520, Iquitos',
     originalPrice: 16.00,
     rescuePrice: 4.50,
     isFree: false,
@@ -41,24 +75,7 @@ const DEFAULT_OFFERS_IQUITOS = [
     badgeText: 'Horno Loretano'
   },
   {
-    id: 'off-iq-3',
-    title: 'Combo Amazónico: Tacacho con Cecina Ahumada y Ensalada de Chonta',
-    store: 'Restaurante El Maleconero',
-    category: 'selvatico',
-    landmark: 'Malecón Tarapacá · Río Itaya',
-    address: 'Malecón Tarapacá 180, Iquitos',
-    originalPrice: 28.00,
-    rescuePrice: 8.50,
-    isFree: false,
-    stock: 2,
-    initialStock: 2,
-    secondsLeft: 1800, // 30 mins (¡Urgente!)
-    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&q=80',
-    impactKg: 2.6,
-    badgeText: 'Cecina Ahumada'
-  },
-  {
-    id: 'off-iq-4',
+    id: 'off-iq-5',
     title: 'Raciones Solidarias: Guiso de Pescado Paiche con Yuca y Arroz',
     store: 'Olla Común San Pedro / Comedor Comunitario Belén',
     category: 'gratis',
@@ -75,7 +92,7 @@ const DEFAULT_OFFERS_IQUITOS = [
     badgeText: '100% Solidario S/ 0.00'
   },
   {
-    id: 'off-iq-5',
+    id: 'off-iq-6',
     title: 'Caja Huerto Amazónico: Aguajes Seleccionados, Cocona y Plátanos Bellacos',
     store: 'Mercado Central de Iquitos - Puesto Doña Maritza',
     category: 'mercado',
@@ -92,7 +109,7 @@ const DEFAULT_OFFERS_IQUITOS = [
     badgeText: 'Fruta Amazónica'
   },
   {
-    id: 'off-iq-6',
+    id: 'off-iq-7',
     title: 'Botellón 2L Camu Camu Puro + Maduro Frito con Queso Regional',
     store: 'Juguería Selva Fresca & Frutas Exóticas',
     category: 'jugos',
@@ -367,6 +384,15 @@ function scrollToOffers() {
 }
 
 // 6. Carrito Rápido (Modal en Jade Oscuro con Precios en S/)
+function quickReserveLomo() {
+  const lomo = state.offers.find(o => o.category === 'criollo' || o.id === 'off-iq-1');
+  if (lomo) {
+    openBookingModal(lomo.id);
+  } else {
+    scrollToOffers();
+  }
+}
+
 function openBookingModal(offerId) {
   const offer = state.offers.find(o => o.id === offerId);
   if (!offer || offer.stock <= 0 || offer.secondsLeft <= 0) return;

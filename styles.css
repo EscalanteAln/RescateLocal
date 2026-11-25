@@ -74,7 +74,7 @@ body {
   justify-content: center;
   padding: 0.12em 0.28em;
   line-height: 1;
-  font-size: clamp(2.2rem, 5.8vw, 4.8rem);
+  font-size: clamp(1.4rem, 3.8vw, 3.2rem);
   text-transform: uppercase;
   user-select: none;
   box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.45), 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -82,8 +82,14 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
+.cutout-letter-sm {
+  font-size: clamp(0.75rem, 1.8vw, 1.05rem) !important;
+  padding: 0.15em 0.35em !important;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.4) !important;
+}
+
 .cutout-letter:hover {
-  transform: scale(1.08) rotate(0deg) !important;
+  transform: scale(1.1) rotate(0deg) !important;
   z-index: 20;
 }
 
@@ -162,7 +168,7 @@ body {
 }
 
 /* ========================================================
-   HERO FULL-COVER (LOMO SALTADO & SELVA DE IQUITOS)
+   HERO FULL-COVER (RESCATE LOCAL - ENSALADA FRESCA)
    ======================================================== */
 .hero-fullcover-container {
   position: relative;
@@ -170,20 +176,32 @@ body {
   overflow: hidden;
   box-shadow: 0 25px 60px -15px rgba(2, 18, 11, 0.85), 0 0 0 1px rgba(52, 211, 153, 0.3);
   background-image: 
-    linear-gradient(90deg, rgba(6, 32, 22, 0.95) 0%, rgba(9, 44, 31, 0.82) 52%, rgba(6, 32, 22, 0.42) 100%),
-    url('hero-lomo-saltado.png');
+    linear-gradient(90deg, rgba(6, 28, 18, 0.88) 0%, rgba(6, 28, 18, 0.65) 42%, rgba(6, 28, 18, 0.25) 75%, rgba(6, 28, 18, 0.40) 100%),
+    url('hero-salad.jpg');
   background-size: cover;
-  background-position: center right;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 
 @media (max-width: 768px) {
   .hero-fullcover-container {
     background-image: 
-      linear-gradient(180deg, rgba(6, 32, 22, 0.96) 0%, rgba(9, 44, 31, 0.88) 55%, rgba(6, 32, 22, 0.75) 100%),
-      url('hero-lomo-saltado.png');
-    background-position: center top;
+      linear-gradient(180deg, rgba(6, 28, 18, 0.90) 0%, rgba(6, 28, 18, 0.60) 40%, rgba(6, 28, 18, 0.85) 100%),
+      url('hero-salad.jpg');
+    background-position: center right;
   }
+}
+
+.text-shadow-hero {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85), 0 4px 20px rgba(6, 28, 18, 0.9);
+}
+
+.search-glass-pill {
+  background: rgba(6, 28, 18, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5), 0 0 20px rgba(52, 211, 153, 0.15);
 }
 
 .hero-radial-glow {

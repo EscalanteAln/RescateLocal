@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rescate Local - Comida Saludable y Fresca</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-color: #061c12;
+    }
+
+    /* Fondo principal a pantalla completa con la imagen adjunta */
+    .hero-full-bg {
+      position: relative;
+      min-height: 100vh;
+      width: 100%;
+      background-image: 
+        /* Capa oscura sutil de contraste para legibilidad perfecta */
+        linear-gradient(
+          to right,
+          rgba(6, 28, 18, 0.88) 0%,
+          rgba(6, 28, 18, 0.65) 42%,
+          rgba(6, 28, 18, 0.25) 75%,
+          rgba(6, 28, 18, 0.40) 100%
+        ),
+        url('hero-salad.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* En celulares oscurecemos un poco más el centro para que la lectura sea impecable */
+    @media (max-width: 768px) {
+      .hero-full-bg {
+        background-image: 
+          linear-gradient(
+            to bottom,
+            rgba(6, 28, 18, 0.90) 0%,
+            rgba(6, 28, 18, 0.60) 40%,
+            rgba(6, 28, 18, 0.85) 100%
+          ),
+          url('hero-salad.jpg');
+        background-position: center right;
+      }
+    }
+
+    /* Sombra de texto pronunciada para máxima nitidez */
+    .text-shadow-hero {
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85), 0 4px 20px rgba(6, 28, 18, 0.9);
+    }
+
+    /* Píldora de búsqueda con desenfoque de fondo (Glassmorphism) */
+    .search-glass-pill {
+      background: rgba(6, 28, 18, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(52, 211, 153, 0.35);
+      box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5), 0 0 20px rgba(52, 211, 153, 0.15);
+    }
+  </style>
+</head>
+
+<body class="text-white antialiased selection:bg-emerald-500 selection:text-slate-950">
+
+  <!-- ========================================================
+       HERO SECTION A PANTALLA COMPLETA
+       ======================================================== -->
+  <section class="hero-full-bg relative">
+
+    <!-- ========================================================
+         1. BARRA DE NAVEGACIÓN SUPERIOR (HEADER)
+         ======================================================== -->
+    <header class="w-full fixed top-0 left-0 z-50 transition-all duration-300 bg-slate-950/30 backdrop-blur-md border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        
+        <!-- A LA IZQUIERDA: Logotipo 'RESCATE LOCAL' limpio -->
+        <a href="#" class="flex items-center space-x-2.5 group">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform duration-200">
+            <!-- Icono de Hoja / Planta Fresca -->
+            <svg class="w-5 h-5 text-slate-950" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-black text-xl tracking-tight text-white leading-none">RESCATE LOCAL</span>
+            <span class="text-[10px] font-bold tracking-widest text-emerald-400 uppercase mt-0.5">COMIDA SALUDABLE</span>
+          </div>
+        </a>
+
+        <!-- AL CENTRO: Menú con enlaces principales -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-bold text-slate-200">
+          <a href="#inicio" class="text-emerald-400 hover:text-white transition duration-200 flex items-center gap-1">
+            <span>Inicio</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          </a>
+          <a href="#menu" class="hover:text-emerald-300 transition duration-200">Menú</a>
+          <a href="#causa" class="hover:text-emerald-300 transition duration-200">Nuestra Causa</a>
+          <a href="#contacto" class="hover:text-emerald-300 transition duration-200">Contacto</a>
+        </nav>
+
+        <!-- A LA DERECHA: Botón de llamada a la acción (CTA) Verde Fresco -->
+        <div class="flex items-center space-x-3">
+          <button onclick="alert('Explorando menú saludable...')" class="hidden sm:inline-flex bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 text-slate-950 font-black text-xs sm:text-sm px-6 py-2.5 rounded-full shadow-lg shadow-emerald-500/30 transition-all duration-200 hover:scale-105 active:scale-95 border border-emerald-200/50">
+            Pedir Ahora
+          </button>
+          
+          <!-- Botón Menú Móvil (Hamburguesa) -->
+          <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Menú desplegable móvil -->
+      <div id="mobile-menu" class="hidden md:hidden bg-[#061c12]/95 backdrop-blur-xl border-b border-emerald-500/20 px-6 py-5 space-y-3">
+        <a href="#inicio" class="block text-emerald-400 font-bold text-sm">Inicio</a>
+        <a href="#menu" class="block text-white hover:text-emerald-300 font-semibold text-sm">Menú</a>
+        <a href="#causa" class="block text-white hover:text-emerald-300 font-semibold text-sm">Nuestra Causa</a>
+        <a href="#contacto" class="block text-white hover:text-emerald-300 font-semibold text-sm">Contacto</a>
+        <button onclick="alert('Abriendo menú...')" class="w-full mt-2 py-2.5 bg-emerald-400 text-slate-950 font-black text-xs rounded-full shadow-md">
+          Pedir Ahora
+        </button>
+      </div>
+    </header>
+
+    <!-- Espaciador para la barra fija -->
+    <div class="h-20"></div>
+
+    <!-- ========================================================
+         2. CONTENIDO PRINCIPAL (HERO CONTENT)
+         Ubicado estratégicamente debajo del título 3D integrado en la foto
+         ======================================================== -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center py-12 sm:py-16 relative z-10">
+      
+      <div class="max-w-2xl space-y-6">
+        
+        <!-- Píldora de Identidad Ecológica -->
+        <div class="inline-flex items-center gap-2 bg-emerald-950/80 backdrop-blur-md border border-emerald-400/40 text-emerald-300 px-3.5 py-1.5 rounded-full text-xs font-black tracking-wide shadow-lg">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>100% ORGÁNICO & FRESCO DEL DÍA</span>
+        </div>
+
+        <!-- Subtítulo llamativo en color blanco (debajo del título de la imagen) -->
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight text-shadow-hero">
+          Ingredientes frescos y locales directos a tu mesa
+        </h2>
+
+        <!-- Breve descripción persuasiva -->
+        <p class="text-emerald-100/90 text-sm sm:text-base lg:text-lg max-w-xl font-medium leading-relaxed text-shadow-hero">
+          Rescatamos los mejores vegetales, hortalizas y recetas saludables de agricultores y huertos cercanos. Deliciosas ensaladas preparadas con pasión y cero desperdicio.
+        </p>
+
+        <!-- Barra de Búsqueda de Ubicación y CTA Interactivo -->
+        <div class="pt-2 max-w-xl">
+          <form onsubmit="handleSaladSearch(event)" class="search-glass-pill rounded-full p-1.5 sm:p-2 flex flex-col sm:flex-row items-center gap-2">
+            <div class="flex items-center pl-4 w-full sm:flex-1">
+              <svg class="w-5 h-5 text-emerald-400 mr-2.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <input 
+                type="text" 
+                id="location-search" 
+                placeholder="Ingresa tu dirección o distrito..." 
+                required
+                class="w-full text-xs sm:text-sm text-white outline-none bg-transparent font-medium placeholder-emerald-200/60"
+              >
+            </div>
+            
+            <!-- Botón interactivo principal -->
+            <button 
+              type="submit" 
+              class="w-full sm:w-auto bg-gradient-to-r from-emerald-400 via-emerald-500 to-teal-500 hover:from-emerald-300 hover:to-teal-400 text-slate-950 font-black text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-lg shadow-emerald-500/30 transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center space-x-2 shrink-0 border border-emerald-200/40"
+            >
+              <span>Encuentra tu ensalada</span>
+              <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Indicadores de confianza y valor (Píldoras inferiores) -->
+        <div class="flex flex-wrap items-center gap-4 sm:gap-6 pt-3 text-xs font-semibold text-emerald-100">
+          <div class="flex items-center space-x-2">
+            <span class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">⏱️</span>
+            <span>Entrega rápida en 30 min</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">🌱</span>
+            <span>Envases 100% compostables</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">⭐</span>
+            <span>4.9/5 valoración local</span>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- ========================================================
+         3. FOOTER O BARRA FLOTANTE DE CONFIANZA INFERIOR
+         ======================================================== -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 w-full relative z-10">
+      <div class="bg-slate-950/40 backdrop-blur-md rounded-2xl py-3 px-5 border border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-emerald-200/80 gap-2">
+        <div class="flex items-center space-x-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+          <span><strong>+480 platos saludables</strong> rescatados y entregados esta semana</span>
+        </div>
+        <div class="flex items-center space-x-4">
+          <a href="#menu" class="hover:text-emerald-300 underline font-medium">Ver Menú del Día</a>
+          <a href="#causa" class="hover:text-emerald-300 underline font-medium">Conoce Nuestra Misión Verde</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Script interactivo ligero -->
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    function handleSaladSearch(e) {
+      e.preventDefault();
+      const loc = document.getElementById('location-search').value.trim();
+      if (loc) {
+        alert(`🥗 ¡Buscando ensaladas frescas y huertos disponibles cerca de "${loc}"!`);
+      }
+    }
+  </script>
+
+</body>
+</html>
