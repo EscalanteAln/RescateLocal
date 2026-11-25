@@ -13,6 +13,9 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
+  <!-- Three.js CDN para la Mascota 3D Interactiva -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
   <!-- Estilos Personalizados (Verde Jade, CERO Blanco y Tipografía Collage) -->
   <link rel="stylesheet" href="styles.css">
   
@@ -170,27 +173,10 @@
         
         <div class="lg:col-span-8 space-y-4">
           
-          <!-- Píldoras de Identidad Verde + Letras Estilo Recorte de Revista / Collage (Ref. Alfabeto) -->
-          <div class="flex flex-wrap items-center gap-2">
-            <div class="inline-flex items-center gap-2 bg-emerald-950/80 backdrop-blur-md border border-emerald-400/40 text-emerald-300 px-3.5 py-1.5 rounded-full text-xs font-black tracking-wide shadow-lg">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>100% FRESCO • INGREDIENTES LOCALES</span>
-            </div>
-            <!-- Collage Cutout Badge -->
-            <div class="inline-flex items-center gap-1">
-              <span class="cutout-letter cutout-letter-sm cutout-1">I</span>
-              <span class="cutout-letter cutout-letter-sm cutout-2">Q</span>
-              <span class="cutout-letter cutout-letter-sm cutout-4">U</span>
-              <span class="cutout-letter cutout-letter-sm cutout-5">I</span>
-              <span class="cutout-letter cutout-letter-sm cutout-3">T</span>
-              <span class="cutout-letter cutout-letter-sm cutout-6">O</span>
-              <span class="cutout-letter cutout-letter-sm cutout-7">S</span>
-              <span class="text-emerald-400 font-bold px-0.5">•</span>
-              <span class="cutout-letter cutout-letter-sm cutout-8">P</span>
-              <span class="cutout-letter cutout-letter-sm cutout-2">E</span>
-              <span class="cutout-letter cutout-letter-sm cutout-4">R</span>
-              <span class="cutout-letter cutout-letter-sm cutout-1">Ú</span>
-            </div>
+          <!-- Píldora de Identidad Verde -->
+          <div class="inline-flex items-center gap-2 bg-emerald-950/80 backdrop-blur-md border border-emerald-400/40 text-emerald-300 px-3.5 py-1.5 rounded-full text-xs font-black tracking-wide shadow-lg">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>100% FRESCO • INGREDIENTES LOCALES DE LA HUERTA</span>
           </div>
 
           <!-- Subtítulo llamativo en color blanco (debajo del título 3D integrado en la imagen) -->
@@ -281,63 +267,146 @@
     <!-- ========================================================
          SECCIÓN: CÓMO FUNCIONA (COMBATIENDO EL DESPERDICIO EN IQUITOS)
          ======================================================== -->
-    <section id="como-funciona" class="pt-16 pb-8">
+    <!-- ========================================================
+         SECCIÓN: CÓMO FRENAMOS EL DESPERDICIO (FONDO CAFETERÍA + GATO 3D)
+         ======================================================== -->
+    <section id="como-funciona" class="pt-12 pb-14">
       
-      <div class="text-center max-w-2xl mx-auto mb-10">
-        <span class="text-xs font-black tracking-widest text-emerald-400 uppercase">IMPACTO ECOLÓGICO Y SOCIAL</span>
-        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight mt-1">
-          ¿Cómo frenamos el desperdicio de comida en Iquitos?
-        </h2>
-        <p class="text-xs sm:text-sm text-emerald-200/70 mt-2">
-          En una ciudad fluvial como Iquitos, el transporte de alimentos es valioso. No podemos permitir que la comida fresca del día termine en la basura.
-        </p>
-      </div>
-
-      <!-- 3 Pasos con Diseño Atractivo en Jade Oscuro -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="cafe-hero-wrapper relative rounded-[36px] overflow-hidden border border-emerald-500/35 shadow-2xl">
         
-        <!-- Paso 1: El Excedente Diario -->
-        <div class="jade-card p-6 flex flex-col justify-between relative overflow-hidden group">
-          <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl font-black mb-4 border border-amber-400/30">
-            🥖
-          </div>
-          <span class="text-[10px] font-black uppercase text-amber-300 tracking-wider">PASO 1</span>
-          <h3 class="text-lg font-black text-white mt-1 mb-2">El Excedente Diario</h3>
-          <p class="text-xs text-emerald-200/80 leading-relaxed">
-            Al final del día, panaderías, mercados (Belén, Central) y huariques en Iquitos generan comida fresca excelente (juanes, tacacho, panes) que no se vendió en el turno y solía desperdiciarse.
-          </p>
-          <div class="mt-4 pt-3 border-t border-emerald-500/20 flex items-center text-[11px] text-emerald-300 font-semibold">
-            <span>✨ 100% fresco y apto para consumo</span>
-          </div>
-        </div>
+        <!-- Capa de desenfoque sutil y oscurecimiento semitransparente para máxima legibilidad -->
+        <div class="absolute inset-0 bg-[#04140d]/80 cafe-backdrop-blur pointer-events-none"></div>
 
-        <!-- Paso 2: Publicación Relámpago -->
-        <div class="jade-card p-6 flex flex-col justify-between relative overflow-hidden group">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl font-black mb-4 border border-emerald-400/30">
-            ⚡
-          </div>
-          <span class="text-[10px] font-black uppercase text-emerald-300 tracking-wider">PASO 2</span>
-          <h3 class="text-lg font-black text-white mt-1 mb-2">Publicación Relámpago</h3>
-          <p class="text-xs text-emerald-200/80 leading-relaxed">
-            Los comerciantes ingresan a la app y publican sus excedentes a precios de rescate simbólicos (hasta -70%) o a S/ 0.00 para donación comunitaria antes de cerrar su local.
-          </p>
-          <div class="mt-4 pt-3 border-t border-emerald-500/20 flex items-center text-[11px] text-emerald-300 font-semibold">
-            <span>⏳ Temporizador en tiempo real</span>
-          </div>
-        </div>
+        <!-- Contenido principal en 2 columnas (Responsive: Info primero, Gato 3D debajo en celular) -->
+        <div class="relative z-10 p-6 sm:p-10 lg:p-12">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            
+            <!-- ========================================================
+                 COLUMNA IZQUIERDA: INFORMACIÓN Y PASOS CLAVE (GLASSMORPHISM)
+                 ======================================================== -->
+            <div class="lg:col-span-7 glass-info-card p-6 sm:p-8 lg:p-10 space-y-6">
+              
+              <!-- Encabezado de la Tarjeta -->
+              <div class="space-y-2.5 border-b border-emerald-500/25 pb-5">
+                <div class="inline-flex items-center gap-2 bg-emerald-950/80 border border-emerald-400/40 text-emerald-300 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>IMPACTO ECOLÓGICO Y SOCIAL</span>
+                </div>
+                
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+                  ¿Cómo frenamos el desperdicio de comida en Iquitos?
+                </h2>
+                
+                <p class="text-xs sm:text-sm text-emerald-100/80 leading-relaxed font-medium pt-1">
+                  En una ciudad fluvial como Iquitos, el transporte y la preparación de cada alimento tiene un alto valor ambiental y comunitario. Conectamos los excedentes del día con familias que los aprovechan.
+                </p>
+              </div>
 
-        <!-- Paso 3: Rescate Comunitario -->
-        <div class="jade-card p-6 flex flex-col justify-between relative overflow-hidden group">
-          <div class="w-12 h-12 rounded-2xl bg-teal-500/20 text-teal-300 flex items-center justify-center text-2xl font-black mb-4 border border-teal-400/30">
-            🤝
-          </div>
-          <span class="text-[10px] font-black uppercase text-teal-300 tracking-wider">PASO 3</span>
-          <h3 class="text-lg font-black text-white mt-1 mb-2">Rescate Comunitario</h3>
-          <p class="text-xs text-emerald-200/80 leading-relaxed">
-            Las familias y comedores de Iquitos reservan con un tap y recogen en el local (Plaza de Armas, Malecón, etc.) con su código QR. Se evita el desperdicio y se ayuda al bolsillo familiar.
-          </p>
-          <div class="mt-4 pt-3 border-t border-emerald-500/20 flex items-center text-[11px] text-emerald-300 font-semibold">
-            <span>🌱 -48 kg de CO₂ evitados hoy</span>
+              <!-- 3 Pasos Clave de Rescate -->
+              <div class="space-y-4 pt-1">
+                
+                <!-- Paso 1 -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-[#092D1F]/70 border border-emerald-500/25 hover:border-emerald-400/50 transition duration-200 group">
+                  <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center text-2xl shrink-0 border border-amber-400/30 group-hover:scale-105 transition">
+                    🥖
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[10px] font-black uppercase text-amber-300 bg-amber-500/25 px-2 py-0.5 rounded-md">PASO 1</span>
+                      <h4 class="text-sm font-extrabold text-white">El Excedente Diario en Comercios</h4>
+                    </div>
+                    <p class="text-xs text-emerald-200/80 leading-relaxed">
+                      Panaderías, restaurantes, huariques y puestos del Mercado Central registran los alimentos frescos preparados hoy (juanes, pan de piso, frutas) que no llegaron a venderse.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-[#092D1F]/70 border border-emerald-500/25 hover:border-emerald-400/50 transition duration-200 group">
+                  <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-2xl shrink-0 border border-emerald-400/30 group-hover:scale-105 transition">
+                    ⚡
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[10px] font-black uppercase text-emerald-300 bg-emerald-500/25 px-2 py-0.5 rounded-md">PASO 2</span>
+                      <h4 class="text-sm font-extrabold text-white">Publicación Relámpago con Descuento</h4>
+                    </div>
+                    <p class="text-xs text-emerald-200/80 leading-relaxed">
+                      Se publican automáticamente con temporizador regresivo a precios de rescate simbólicos (hasta -70%) o a S/ 0.00 solidario para comedores antes del cierre del local.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-[#092D1F]/70 border border-emerald-500/25 hover:border-emerald-400/50 transition duration-200 group">
+                  <div class="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-300 flex items-center justify-center text-2xl shrink-0 border border-teal-400/30 group-hover:scale-105 transition">
+                    🤝
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[10px] font-black uppercase text-teal-300 bg-teal-500/25 px-2 py-0.5 rounded-md">PASO 3</span>
+                      <h4 class="text-sm font-extrabold text-white">Reserva Rápida y Retiro Local con QR</h4>
+                    </div>
+                    <p class="text-xs text-emerald-200/80 leading-relaxed">
+                      Familias y vecinos reservan con un tap y retiran en el local mostrando su QR digital. La comida no se tira, el bolsillo ahorra y protegemos el medio ambiente de Iquitos.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Indicador de Impacto Social / Ambiental -->
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-emerald-500/20 text-xs text-emerald-200/80">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                  <span class="font-bold text-white">48.2 kg de alimentos rescatados hoy</span>
+                </div>
+                <div class="flex items-center gap-1.5 text-emerald-300 font-semibold">
+                  <span>🌱 Cero desperdicio en la Amazonía</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ========================================================
+                 COLUMNA DERECHA: MASCOTA 3D INTERACTIVA (THREE.JS GATO BLANCO)
+                 ======================================================== -->
+            <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+              
+              <!-- Contenedor del Visor 3D -->
+              <div id="cat-3d-stage" class="cat-3d-stage relative w-full h-[360px] sm:h-[420px] rounded-3xl overflow-hidden flex items-center justify-center">
+                
+                <!-- Globo de Diálogo Flotante (Eco-Tips al interactuar) -->
+                <div id="cat-speech-bubble" class="cat-speech-bubble opacity-0 scale-90 pointer-events-none transition-all duration-300">
+                  <div class="flex items-start gap-2.5">
+                    <span class="text-base shrink-0">🐾</span>
+                    <div>
+                      <span class="block text-[10px] font-black uppercase text-emerald-400 tracking-wider">MICHI GUARDIÁN DICE:</span>
+                      <p id="cat-tip-text" class="text-xs font-semibold text-white mt-0.5">
+                        ¡Miau! ¿Sabías que en Iquitos rescatar 1 kg de comida evita hasta 2.5 kg de CO₂ en nuestra Amazonía? 🌱
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Canvas de Three.js montado dinámicamente -->
+                <div id="cat-3d-canvas-container" class="w-full h-full"></div>
+
+              </div>
+
+              <!-- Barra de Control e Interacción con Michi -->
+              <div class="w-full max-w-sm mt-3 px-2 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-center">
+                <p class="text-[11px] text-emerald-200/70 font-medium">
+                  ✨ <strong class="text-emerald-300">Interactúa con Michi:</strong> Arrastra para girar • El gato sigue tu cursor
+                </p>
+                <button id="cheer-cat-btn" onclick="triggerCatCheer()" class="px-4 py-1.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 text-xs font-black shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 active:scale-95 shrink-0 flex items-center gap-1.5 border border-emerald-200/40">
+                  <span>Saludar a Michi</span>
+                  <span>🐾</span>
+                </button>
+              </div>
+
+            </div>
+
           </div>
         </div>
 
@@ -366,26 +435,18 @@
         </div>
       </div>
 
-      <!-- Fila de Círculos de Comida (8 Categorías estilo Referencia Foodie) -->
+      <!-- Fila de Círculos de Comida de Iquitos -->
       <div id="cat-carousel" class="flex items-center space-x-6 overflow-x-auto no-scrollbar py-2">
         
-        <!-- 1. Lomo Saltado & Criollo -->
-        <div onclick="filterByCategory('criollo'); scrollToOffers()" class="flex flex-col items-center group cursor-pointer shrink-0">
-          <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-emerald-400 group-hover:border-emerald-300 transition shadow-lg p-1 bg-[#092D1F]">
-            <img src="hero-lomo-saltado.png" alt="Lomo Saltado Criollo" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-300">
-          </div>
-          <span class="text-xs font-bold text-emerald-200 mt-2 group-hover:text-emerald-400">Lomo Saltado</span>
-        </div>
-
-        <!-- 2. Juanes & Cecina (Selvático) -->
+        <!-- 1. Platos Selváticos -->
         <div onclick="filterByCategory('selvatico'); scrollToOffers()" class="flex flex-col items-center group cursor-pointer shrink-0">
           <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-emerald-500/40 group-hover:border-emerald-400 transition shadow-lg p-1 bg-[#092D1F]">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" alt="Juane y Tacacho" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-300">
+            <img src="hero-lomo-saltado.png" alt="Juane y Tacacho" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-300">
           </div>
-          <span class="text-xs font-bold text-emerald-200 mt-2 group-hover:text-emerald-400">Juanes & Cecina</span>
+          <span class="text-xs font-bold text-emerald-200 mt-2 group-hover:text-emerald-400">Juanes & Tacacho</span>
         </div>
 
-        <!-- 3. Panadería Loretana -->
+        <!-- 2. Panadería Loretana -->
         <div onclick="filterByCategory('panaderia'); scrollToOffers()" class="flex flex-col items-center group cursor-pointer shrink-0">
           <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-emerald-500/40 group-hover:border-emerald-400 transition shadow-lg p-1 bg-[#092D1F]">
             <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=200&q=80" alt="Pan Regional" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-300">
@@ -393,15 +454,7 @@
           <span class="text-xs font-bold text-emerald-200 mt-2 group-hover:text-emerald-400">Pan de Piso</span>
         </div>
 
-        <!-- 4. Ensaladas de Huerta Fresca -->
-        <div onclick="filterByCategory('ensaladas'); scrollToOffers()" class="flex flex-col items-center group cursor-pointer shrink-0">
-          <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-emerald-400 group-hover:border-emerald-300 transition shadow-lg p-1 bg-[#092D1F]">
-            <img src="hero-salad.jpg" alt="Ensaladas de Huerta" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-300">
-          </div>
-          <span class="text-xs font-bold text-emerald-200 mt-2 group-hover:text-emerald-400">Ensaladas</span>
-        </div>
-
-        <!-- 5. Frutas Amazónicas / Mercado -->
+        <!-- 3. Frutas Amazónicas / Mercado -->
         <div onclick="filterByCategory('mercado'); scrollToOffers()" class="flex flex-col items-center group cursor-pointer shrink-0">
           <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-emerald-500/40 group-hover:border-emerald-400 transition shadow-lg p-1 bg-[#092D1F]">
             <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=200&q=80" alt="Aguaje y Frutas" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-300">
@@ -409,15 +462,7 @@
           <span class="text-xs font-bold text-emerald-200 mt-2 group-hover:text-emerald-400">Aguaje & Cocona</span>
         </div>
 
-        <!-- 6. Postres Regionales -->
-        <div onclick="filterByCategory('panaderia'); scrollToOffers()" class="flex flex-col items-center group cursor-pointer shrink-0">
-          <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-emerald-500/40 group-hover:border-emerald-400 transition shadow-lg p-1 bg-[#092D1F]">
-            <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=200&q=80" alt="Postres Regionales" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-300">
-          </div>
-          <span class="text-xs font-bold text-emerald-200 mt-2 group-hover:text-emerald-400">Postres</span>
-        </div>
-
-        <!-- 7. Jugos & Camu Camu -->
+        <!-- 4. Jugos & Camu Camu -->
         <div onclick="filterByCategory('jugos'); scrollToOffers()" class="flex flex-col items-center group cursor-pointer shrink-0">
           <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-emerald-500/40 group-hover:border-emerald-400 transition shadow-lg p-1 bg-[#092D1F]">
             <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=200&q=80" alt="Camu Camu" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-300">
@@ -425,12 +470,12 @@
           <span class="text-xs font-bold text-emerald-200 mt-2 group-hover:text-emerald-400">Camu Camu Puro</span>
         </div>
 
-        <!-- 8. Olla Común Belén (Solidario S/ 0.00) -->
+        <!-- 5. Olla Común Belén (Solidario) -->
         <div onclick="filterByCategory('gratis'); scrollToOffers()" class="flex flex-col items-center group cursor-pointer shrink-0">
           <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-emerald-400 group-hover:border-emerald-300 transition shadow-lg p-1 bg-emerald-950">
             <img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=200&q=80" alt="Comedor Belén" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-300">
           </div>
-          <span class="text-xs font-bold text-emerald-300 mt-2 group-hover:text-white">🎁 S/ 0.00 Belén</span>
+          <span class="text-xs font-bold text-emerald-300 mt-2 group-hover:text-white">🎁 S/ 0.00 Olla Belén</span>
         </div>
 
       </div>
@@ -438,72 +483,31 @@
     </section>
 
     <!-- ========================================================
-         BANNER PROMOCIONAL HORIZONTAL (REFERENCIA FOODIE + COLLAGE)
+         BANNER PROMOCIONAL HORIZONTAL (IQUITOS)
          ======================================================== -->
     <section class="my-8">
-      <div class="bg-gradient-to-r from-[#072418] via-[#0D3E2B] to-[#08281C] rounded-[36px] p-6 sm:p-10 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between border border-emerald-400/40">
+      <div class="bg-gradient-to-r from-[#0B3324] via-[#0F4A34] to-[#0B3324] rounded-[32px] p-6 sm:p-10 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between border border-emerald-500/30">
         
-        <div class="space-y-3.5 z-10 max-w-xl text-center md:text-left">
-          <div class="inline-flex items-center gap-2 bg-emerald-950/80 border border-emerald-400/40 text-emerald-300 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider">
-            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
-            <span>SPECIAL OFFER · OFERTA DEL DÍA EN IQUITOS</span>
-          </div>
-
-          <!-- Título en Letras Estilo Recorte de Revista / Collage (Referencia Alfabeto) -->
-          <div class="flex flex-wrap items-center justify-center md:justify-start gap-1 sm:gap-1.5 py-1">
-            <span class="cutout-letter cutout-1 text-2xl sm:text-4xl">O</span>
-            <span class="cutout-letter cutout-2 text-2xl sm:text-4xl">F</span>
-            <span class="cutout-letter cutout-3 text-2xl sm:text-4xl">E</span>
-            <span class="cutout-letter cutout-4 text-2xl sm:text-4xl">R</span>
-            <span class="cutout-letter cutout-5 text-2xl sm:text-4xl">T</span>
-            <span class="cutout-letter cutout-6 text-2xl sm:text-4xl">A</span>
-            <span class="inline-block w-2 sm:w-3"></span>
-            <span class="cutout-letter cutout-7 text-2xl sm:text-4xl">R</span>
-            <span class="cutout-letter cutout-8 text-2xl sm:text-4xl">E</span>
-            <span class="cutout-letter cutout-1 text-2xl sm:text-4xl">L</span>
-            <span class="cutout-letter cutout-2 text-2xl sm:text-4xl">Á</span>
-            <span class="cutout-letter cutout-3 text-2xl sm:text-4xl">M</span>
-            <span class="cutout-letter cutout-4 text-2xl sm:text-4xl">P</span>
-            <span class="cutout-letter cutout-5 text-2xl sm:text-4xl">A</span>
-            <span class="cutout-letter cutout-6 text-2xl sm:text-4xl">G</span>
-            <span class="cutout-letter cutout-7 text-2xl sm:text-4xl">O</span>
-          </div>
-
-          <h3 class="text-xl sm:text-3xl font-black text-white leading-tight">
-            Hasta 70% OFF · Lomo Saltado y Menús del Día
+        <div class="space-y-3 z-10 max-w-lg text-center md:text-left">
+          <span class="text-xs font-black tracking-widest text-emerald-300 uppercase">OFERTA RELÁMPAGO DE HOY</span>
+          <h3 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+            Hasta 70% OFF · Platos desde S/ 4.00
           </h3>
-          <p class="text-emerald-100/85 text-xs sm:text-sm max-w-lg">
-            Porciones generosas de auténtico Lomo Saltado criollo, juanes calientes y panes loretanos preparados hoy. Rescata antes del cierre y ahórrate más de la mitad.
+          <p class="text-emerald-100/80 text-xs sm:text-sm">
+            En juanes, tacacho con cecina y pan regional de Iquitos. Reserva antes de que cierren los locales esta noche.
           </p>
-
-          <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
-            <button onclick="quickReserveLomo()" class="bg-gradient-to-r from-emerald-400 via-emerald-500 to-teal-400 hover:from-emerald-300 hover:to-teal-300 text-slate-950 font-black text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-xl shadow-emerald-500/25 transition-all duration-200 hover:scale-105 active:scale-95 border border-emerald-200/50 flex items-center space-x-2">
-              <span>Pedir Lomo Saltado (S/ 8.50)</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          <div class="pt-2">
+            <button onclick="scrollToOffers()" class="bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 text-slate-950 font-black text-xs sm:text-sm px-7 py-3 rounded-full shadow-lg transition active:scale-95 border border-emerald-200">
+              Rescatar en Iquitos Ahora
             </button>
-            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#062016]/80 border border-emerald-500/30 text-[11px] font-bold text-amber-300">
-              <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-              <span>Expira en 45 min</span>
-            </div>
           </div>
         </div>
 
-        <!-- Plato de Lomo Saltado con Badges Flotantes -->
-        <div class="relative w-72 sm:w-84 h-48 sm:h-60 mt-8 md:mt-0 z-10 shrink-0 group">
-          <div class="w-full h-full rounded-3xl overflow-hidden border-2 border-emerald-400/50 shadow-2xl shadow-emerald-950/80">
-            <img src="hero-lomo-saltado.png" alt="Lomo Saltado Criollo Tradicional" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          </div>
-          <!-- Badge Flotante -70% OFF -->
-          <div class="absolute -top-3 -right-3 bg-gradient-to-br from-amber-400 to-amber-500 text-slate-950 font-black text-xs px-3.5 py-1.5 rounded-full shadow-lg border border-amber-200">
-            -70% OFF
-          </div>
-          <!-- Badge Calificación -->
-          <div class="absolute -bottom-3 -left-3 bg-[#062016]/90 backdrop-blur-md text-emerald-200 border border-emerald-400/40 text-[11px] font-extrabold px-3 py-1 rounded-full shadow-lg flex items-center gap-1">
-            <span>⭐ 4.9 (142 reseñas)</span>
-          </div>
+        <div class="relative w-64 sm:w-80 h-44 sm:h-52 mt-6 md:mt-0 z-10 shrink-0">
+          <img src="hero-lomo-saltado.png" alt="Comida Regional de Iquitos" class="w-full h-full object-cover rounded-2xl shadow-2xl border-2 border-emerald-400/40">
         </div>
 
-        <div class="absolute -right-16 -bottom-16 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -right-10 -bottom-10 w-80 h-80 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
       </div>
     </section>
 
@@ -524,20 +528,14 @@
           <button onclick="filterByCategory('all')" data-cat="all" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-emerald-500 text-slate-950 shadow-md border border-emerald-300">
             🌱 Todo Iquitos
           </button>
-          <button onclick="filterByCategory('criollo')" data-cat="criollo" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-emerald-100/80 bg-[#0A2D20] hover:bg-[#0E3A2A] transition-all border border-emerald-500/30">
-            🥩 Lomo Saltado
-          </button>
           <button onclick="filterByCategory('selvatico')" data-cat="selvatico" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-emerald-100/80 bg-[#0A2D20] hover:bg-[#0E3A2A] transition-all border border-emerald-500/30">
             🍲 Juanes & Cecina
-          </button>
-          <button onclick="filterByCategory('ensaladas')" data-cat="ensaladas" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-emerald-100/80 bg-[#0A2D20] hover:bg-[#0E3A2A] transition-all border border-emerald-500/30">
-            🥗 Ensaladas
           </button>
           <button onclick="filterByCategory('panaderia')" data-cat="panaderia" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-emerald-100/80 bg-[#0A2D20] hover:bg-[#0E3A2A] transition-all border border-emerald-500/30">
             🥖 Pan Loretano
           </button>
           <button onclick="filterByCategory('mercado')" data-cat="mercado" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-emerald-100/80 bg-[#0A2D20] hover:bg-[#0E3A2A] transition-all border border-emerald-500/30">
-            🥑 Mercado
+            🥑 Mercado Central
           </button>
           <button onclick="filterByCategory('gratis')" data-cat="gratis" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-emerald-300 bg-emerald-950/80 hover:bg-emerald-900 transition-all border border-emerald-400/50">
             🎁 S/ 0.00 Olla Belén
@@ -988,6 +986,9 @@
 
   <!-- Script Principal de la Aplicación -->
   <script src="app.js"></script>
+
+  <!-- Mascota 3D Interactiva con Three.js (Michi Guardián) -->
+  <script src="cat3d.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo Frenamos el Desperdicio - Rescate Local Iquitos (3D Mascot)</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <!-- Estilos Personalizados -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-[#062016] text-[#F0FDF4] antialiased min-h-screen p-4 sm:p-8 flex items-center justify-center">
+
+  <div class="max-w-6xl w-full mx-auto">
+    
+    <!-- ========================================================
+         SECCIÓN: CÓMO FRENAMOS EL DESPERDICIO (FONDO CAFETERÍA + GATO 3D)
+         ======================================================== -->
+    <section id="como-funciona">
+      
+      <div class="cafe-hero-wrapper relative rounded-[36px] overflow-hidden border border-emerald-500/35 shadow-2xl">
+        
+        <!-- Capa de desenfoque sutil y oscurecimiento semitransparente -->
+        <div class="absolute inset-0 bg-[#04140d]/80 cafe-backdrop-blur pointer-events-none"></div>
+
+        <!-- Contenido principal en 2 columnas (Responsive: Info primero, Gato 3D debajo en celular) -->
+        <div class="relative z-10 p-6 sm:p-10 lg:p-12">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            
+            <!-- ========================================================
+                 COLUMNA IZQUIERDA: INFORMACIÓN Y PASOS CLAVE (GLASSMORPHISM)
+                 ======================================================== -->
+            <div class="lg:col-span-7 glass-info-card p-6 sm:p-8 lg:p-10 space-y-6">
+              
+              <!-- Encabezado de la Tarjeta -->
+              <div class="space-y-2.5 border-b border-emerald-500/25 pb-5">
+                <div class="inline-flex items-center gap-2 bg-emerald-950/80 border border-emerald-400/40 text-emerald-300 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>IMPACTO ECOLÓGICO Y SOCIAL</span>
+                </div>
+                
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+                  ¿Cómo frenamos el desperdicio de comida en Iquitos?
+                </h2>
+                
+                <p class="text-xs sm:text-sm text-emerald-100/80 leading-relaxed font-medium pt-1">
+                  En una ciudad fluvial como Iquitos, el transporte y la preparación de cada alimento tiene un alto valor ambiental y comunitario. Conectamos los excedentes del día con familias que los aprovechan.
+                </p>
+              </div>
+
+              <!-- 3 Pasos Clave de Rescate -->
+              <div class="space-y-4 pt-1">
+                
+                <!-- Paso 1 -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-[#092D1F]/70 border border-emerald-500/25 hover:border-emerald-400/50 transition duration-200 group">
+                  <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center text-2xl shrink-0 border border-amber-400/30 group-hover:scale-105 transition">
+                    🥖
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[10px] font-black uppercase text-amber-300 bg-amber-500/25 px-2 py-0.5 rounded-md">PASO 1</span>
+                      <h4 class="text-sm font-extrabold text-white">El Excedente Diario en Comercios</h4>
+                    </div>
+                    <p class="text-xs text-emerald-200/80 leading-relaxed">
+                      Panaderías, restaurantes, huariques y puestos del Mercado Central registran los alimentos frescos preparados hoy (juanes, pan de piso, verduras) que no llegaron a venderse.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-[#092D1F]/70 border border-emerald-500/25 hover:border-emerald-400/50 transition duration-200 group">
+                  <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-2xl shrink-0 border border-emerald-400/30 group-hover:scale-105 transition">
+                    ⚡
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[10px] font-black uppercase text-emerald-300 bg-emerald-500/25 px-2 py-0.5 rounded-md">PASO 2</span>
+                      <h4 class="text-sm font-extrabold text-white">Publicación Relámpago con Descuento</h4>
+                    </div>
+                    <p class="text-xs text-emerald-200/80 leading-relaxed">
+                      Se publican automáticamente con temporizador regresivo a precios de rescate simbólicos (hasta -70%) o a S/ 0.00 solidario para comedores antes del cierre del local.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-[#092D1F]/70 border border-emerald-500/25 hover:border-emerald-400/50 transition duration-200 group">
+                  <div class="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-300 flex items-center justify-center text-2xl shrink-0 border border-teal-400/30 group-hover:scale-105 transition">
+                    🤝
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[10px] font-black uppercase text-teal-300 bg-teal-500/25 px-2 py-0.5 rounded-md">PASO 3</span>
+                      <h4 class="text-sm font-extrabold text-white">Reserva Rápida y Retiro Local con QR</h4>
+                    </div>
+                    <p class="text-xs text-emerald-200/80 leading-relaxed">
+                      Familias y vecinos reservan con un tap y retiran en el local mostrando su QR digital. La comida no se tira, el bolsillo ahorra y protegemos el medio ambiente de Iquitos.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Indicador de Impacto Social / Ambiental -->
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-emerald-500/20 text-xs text-emerald-200/80">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                  <span class="font-bold text-white">48.2 kg de alimentos rescatados hoy</span>
+                </div>
+                <div class="flex items-center gap-1.5 text-emerald-300 font-semibold">
+                  <span>🌱 Cero desperdicio en la Amazonía</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ========================================================
+                 COLUMNA DERECHA: MASCOTA 3D INTERACTIVA (THREE.JS GATO BLANCO)
+                 ======================================================== -->
+            <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+              
+              <!-- Contenedor del Visor 3D -->
+              <div id="cat-3d-stage" class="cat-3d-stage relative w-full h-[360px] sm:h-[420px] rounded-3xl overflow-hidden flex items-center justify-center">
+                
+                <!-- Globo de Diálogo Flotante (Eco-Tips al interactuar) -->
+                <div id="cat-speech-bubble" class="cat-speech-bubble opacity-0 scale-90 pointer-events-none transition-all duration-300">
+                  <div class="flex items-start gap-2.5">
+                    <span class="text-base shrink-0">🐾</span>
+                    <div>
+                      <span class="block text-[10px] font-black uppercase text-emerald-400 tracking-wider">MICHI GUARDIÁN DICE:</span>
+                      <p id="cat-tip-text" class="text-xs font-semibold text-white mt-0.5">
+                        ¡Miau! ¿Sabías que en Iquitos rescatar 1 kg de comida evita hasta 2.5 kg de CO₂ en nuestra Amazonía? 🌱
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Canvas de Three.js montado dinámicamente -->
+                <div id="cat-3d-canvas-container" class="w-full h-full"></div>
+
+              </div>
+
+              <!-- Barra de Control e Interacción con Michi -->
+              <div class="w-full max-w-sm mt-3 px-2 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-center">
+                <p class="text-[11px] text-emerald-200/70 font-medium">
+                  ✨ <strong class="text-emerald-300">Interactúa con Michi:</strong> Arrastra para girar • El gato sigue tu cursor
+                </p>
+                <button id="cheer-cat-btn" onclick="triggerCatCheer()" class="px-4 py-1.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 text-xs font-black shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 active:scale-95 shrink-0 flex items-center gap-1.5 border border-emerald-200/40">
+                  <span>Saludar a Michi</span>
+                  <span>🐾</span>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- Mascota 3D con Three.js -->
+  <script src="cat3d.js"></script>
+
+</body>
+</html>
