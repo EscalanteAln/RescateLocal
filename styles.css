@@ -299,7 +299,7 @@ body {
    ======================================================== */
 .cafe-hero-wrapper {
   position: relative;
-  background-image: url('bg-green-cafe.jpg');
+  background-image: url('bg-greenhouse-cafe.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -407,14 +407,15 @@ body {
   animation: cat-happy-jump 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
 
-/* Parpadeo sutil en los ojos azules */
+/* Parpadeo sutil en los ojos verdes del gato naranja */
 .cat-eyes-glow {
   position: absolute;
-  top: 24%;
-  left: 45%;
-  width: 26px;
-  height: 10px;
-  background: radial-gradient(ellipse, rgba(56, 189, 248, 0.65) 0%, rgba(56, 189, 248, 0) 70%);
+  top: 31%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  width: 58px;
+  height: 14px;
+  background: radial-gradient(ellipse, rgba(52, 211, 153, 0.55) 0%, rgba(52, 211, 153, 0) 70%);
   border-radius: 50%;
   pointer-events: none;
   opacity: 0.65;
